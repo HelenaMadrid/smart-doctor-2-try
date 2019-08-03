@@ -12,8 +12,8 @@ class Dashboard extends Component {
     edit: false,
     name: "",
     age: "",
-    // height: "",
-    // weight: "",
+    height: "",
+    weight: "",
     // notes: "",
     id: "",
     owner: {}
@@ -23,7 +23,7 @@ class Dashboard extends Component {
     this.setState({ modal: !this.state.modal, edit: false });
   };
 
-  toggleEditModal = (name, age, id, owner, e) => {
+  toggleEditModal = (name, age, height, weight, id, owner, e) => {
     e.stopPropagation();
 
     this.setState({
@@ -31,15 +31,17 @@ class Dashboard extends Component {
       edit: !this.state.edit,
       name: name,
       age: age,
+      height: height,
+      weight: weight,
       id: id,
       owner: owner
     });
   };
 
   render() {
-   const { patients } = this.props.patients;
+    const { patients } = this.props.patients;
 
-     let content;
+    let content;
 
     let patientData = patients.sort().map(patient => (
       <div
@@ -48,14 +50,14 @@ class Dashboard extends Component {
         onClick={() => this.props.history.push(`/patients/${patient._id}`)}
       >
         <div className="patient-name">{patient.name}</div>
-         <div
+        <div
           className="patient-info-button"
           onClick={this.toggleEditModal.bind(
             this,
             patient.name,
             patient.age,
-            //patient.weight,
-            //patient.height,
+            patient.height,
+            patient.weight,
             patient._id,
             patient.owner
           )}
@@ -64,7 +66,7 @@ class Dashboard extends Component {
         </div>
         <div className="patient-info-button">Go to patient</div>
       </div>
-     ));
+    ));
 
     if (patients.length > 0) {
       // At least one patient
@@ -80,11 +82,13 @@ class Dashboard extends Component {
               edit={this.state.edit}
               name={this.state.name}
               age={this.state.age}
+              height={this.state.height}
+              weight={this.state.weight}
               id={this.state.id}
               owner={this.state.owner}
             />
           </div>
-          <div className="patients-wrapper">{patientData}</div> 
+          <div className="patients-wrapper">{patientData}</div>
         </>
       );
     } else {
@@ -109,7 +113,7 @@ class Dashboard extends Component {
     return (
       <div className="main-content">
         <h1 className="header">Your patients</h1>
-       {content}
+        {content}
       </div>
     );
   }

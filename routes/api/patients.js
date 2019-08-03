@@ -86,6 +86,9 @@ router.patch(
     let patientFields = {};
 
     patientFields.name = req.body.patientName;
+    patientFields.age=req.body.age;
+    patientFields.height=req.body.height;
+    patientFields.weight=req.body.weight;
 
     Patient.findOneAndUpdate(
       { _id: req.body.id },

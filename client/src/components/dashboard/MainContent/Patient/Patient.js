@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPatient } from "../../../../actions/patientsActions";
-// import { getTasks } from "../../../../actions/taskActions";
 
 import Spinner from "../../../common/Spinner";
 import Modal from "../Modal/Modal";
@@ -23,14 +22,17 @@ class Patient extends Component {
   };
 
   toggleModal = e => {
-    this.setState({ modal: !this.state.modal, edit: false});
+    this.setState({ modal: !this.state.modal, edit: false });
   };
 
-  toggleEditModal = (name, id, owner, e) => {
+  toggleEditModal = (name, age, height, weight, id, owner, e) => {
     this.setState({
       modal: !this.state.modal,
       edit: !this.state.edit,
       name: name,
+      age: age,
+      height: height,
+      weight: weight,
       id: id,
       owner: owner
     });
@@ -49,7 +51,7 @@ class Patient extends Component {
 
 
   render() {
-  
+
     if (
       this.props.patient &&
       !this.props.patients.patientLoading
@@ -63,6 +65,9 @@ class Patient extends Component {
             onClick={this.toggleEditModal.bind(
               this,
               patient.name,
+              patient.age,
+              patient.height,
+              patient.weight,
               patient._id,
               patient.owner
             )}

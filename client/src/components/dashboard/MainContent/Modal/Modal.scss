@@ -121,14 +121,14 @@
   }
 }
 
-.create-project,
-.update-project,
-.delete-project {
+.create-patient,
+.update-patient,
+.delete-patient {
   position: fixed;
   bottom: 1.25rem;
 }
 
-.delete-project {
+.delete-patient {
   margin-left: 335px;
   background-color: $red;
   border: 1px solid $red;

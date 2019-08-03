@@ -31,16 +31,12 @@ class Modal extends Component {
   }
 
   onChange = e => {
-    // if (["name", "email"].includes(e.target.name)) {
-    //   let members = [...this.state.members];
-    //   members[e.target.dataset.id][e.target.name] = e.target.value;
-    //   this.setState({ members });
-    // } else {
-      this.setState({ [e.target.id]: e.target.value });
-    // }
+
+    this.setState({ [e.target.id]: e.target.value });
+
   };
 
-  
+
 
   createPatient = () => {
     let patient = {
@@ -124,7 +120,45 @@ class Modal extends Component {
               />
             </label>
           </div>
-          
+          <div className="form-group">
+            <label>
+              <div className="form-label">age</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.age}
+                id="age"
+                type="number"
+                placeholder="patient age"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <div className="form-label">height</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.height}
+                id="height"
+                type="number"
+                placeholder="patient height"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <div className="form-label">weight</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.weight}
+                id="weight"
+                type="number"
+                placeholder="patient weight"
+                className="form-input"
+              />
+            </label>
+          </div>
           <div>
             <button
               className="main-btn update-patient"
@@ -134,7 +168,7 @@ class Modal extends Component {
             </button>
             {this.props.owner.id === this.props.auth.user.id ? (
               <button
-                className="main-btn delete-project"
+                className="main-btn delete-patient"
                 onClick={this.deletePatient.bind(this, this.props.id)}
               >
                 Delete Patient
