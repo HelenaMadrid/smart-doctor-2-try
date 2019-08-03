@@ -45,7 +45,7 @@ class Layout extends Component {
                 patients={patients}
                 component={Dashboard}
               />
-              <Route exact path="/patient/:patient" component={Patient} />
+              <Route exact path="/patients/:patient" component={Patient} />
               <Route component={NotFound} />
             </Switch>
           </div>
