@@ -31,9 +31,7 @@ class Modal extends Component {
   }
 
   onChange = e => {
-
     this.setState({ [e.target.id]: e.target.value });
-
   };
 
 
@@ -77,6 +75,14 @@ class Modal extends Component {
       height: "",
       weight: "",
     });
+
+   if(window.location.pathname==="/dashboard"){
+    console.log("no reload "+window.location);
+    
+  }
+  else{
+    window.location.reload(); 
+  }
   };
 
   onSelectChange = e => {

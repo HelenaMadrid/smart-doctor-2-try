@@ -26,6 +26,7 @@ class Patient extends Component {
   };
 
   toggleEditModal = (name, age, height, weight, id, owner, e) => {
+    // e.stopPropagation();
     this.setState({
       modal: !this.state.modal,
       edit: !this.state.edit,
@@ -38,14 +39,15 @@ class Patient extends Component {
     });
   };
 
-  updatePatient(patient){
-    this.setState({
-      name: patient.name,
-      age: patient.age,
-      height: patient.height,
-      weight: patient.weight
-    });
-  }
+
+  // updatePatient(patient) {
+  //   this.setState({
+  //     name: patient.name,
+  //     age: patient.age,
+  //     height: patient.height,
+  //     weight: patient.weight
+  //   });
+  // }
 
 
   componentDidMount() {
@@ -58,19 +60,32 @@ class Patient extends Component {
     }
   }
 
+  // onChange = async e => {
+  //   await this.setState({ patients: this.props.patients.patient });
+
+  //   let patient = await [...this.state.patient];
+
+  //   await alert(patient[e.target.id].name);
+
+  //   patient[e.target.id].name = await e.target.value;
+
+  //   await this.setState({ patient });
+  // };
 
   render() {
 
     if (
-      this.props.patient &&
+      this.props.patient 
+      &&
       !this.props.patients.patientLoading
     ) {
       const { patient } = this.props;
 
       return (
+
         <div className="main-content">
           <h1 className="patient-header">{patient.name}</h1>
-          {/* <button
+          <button
             onClick={this.toggleEditModal.bind(
               this,
               patient.name,
@@ -83,21 +98,22 @@ class Patient extends Component {
             className="main-btn center-btn"
           >
             Edit Patient Info
-          </button> */}
+          </button>
 
           <div className="modal-wrapper">
             <Modal
+              onClose={this.toggleModal}
+              modal={this.state.modal}
+              edit={this.state.edit}
+              name={this.state.name}
               age={this.state.age}
               height={this.state.height}
               weight={this.state.weight}
               id={this.state.id}
               owner={this.state.owner}
-              onClose={this.toggleModal}
-              modal={this.state.modal}
-              edit={this.state.edit}
-              name={this.state.name}
             />
           </div>
+
           {/* <div className="tasks-container">
             <div className="patients-first-row">
               <button
