@@ -38,6 +38,15 @@ class Patient extends Component {
     });
   };
 
+  updatePatient(patient){
+    this.setState({
+      name: patient.name,
+      age: patient.age,
+      height: patient.height,
+      weight: patient.weight
+    });
+  }
+
 
   componentDidMount() {
     this.props.getPatient(this.props.match.params.patient);
@@ -61,7 +70,7 @@ class Patient extends Component {
       return (
         <div className="main-content">
           <h1 className="patient-header">{patient.name}</h1>
-          <button
+          {/* <button
             onClick={this.toggleEditModal.bind(
               this,
               patient.name,
@@ -74,16 +83,19 @@ class Patient extends Component {
             className="main-btn center-btn"
           >
             Edit Patient Info
-          </button>
+          </button> */}
 
           <div className="modal-wrapper">
             <Modal
+              age={this.state.age}
+              height={this.state.height}
+              weight={this.state.weight}
+              id={this.state.id}
+              owner={this.state.owner}
               onClose={this.toggleModal}
               modal={this.state.modal}
               edit={this.state.edit}
               name={this.state.name}
-              id={this.state.id}
-              owner={this.state.owner}
             />
           </div>
           {/* <div className="tasks-container">
@@ -101,6 +113,26 @@ class Patient extends Component {
             </div>
             <div className="patient-tasks">{tasksList}</div>
           </div> */}
+          <div className="tasks-container">
+            <h2 className="header">Age</h2>
+            <div className="form-label">{patient.age}</div>
+            <h2 className="header">Height</h2>
+            <div className="form-label">{patient.height}</div>
+            <h2 className="header">Weight</h2>
+            <div className="form-label">{patient.weight}</div>
+          </div>
+
+          {/* <div className="tasks-container">
+            <div className="patients-first-row">
+              <div className="patients-column-headers">
+                <p>{patient.age}</p>
+                <p>{patient.height}</p>
+                <p>{patient.weight}</p>
+              </div>
+            </div>
+          </div> */}
+
+
         </div>
       );
     }

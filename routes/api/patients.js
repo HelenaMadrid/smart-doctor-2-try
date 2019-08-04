@@ -46,7 +46,6 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     let id = req.params.id;
-
     Patient.findById(id).then(patient => res.json(patient));
   }
 );
