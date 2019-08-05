@@ -67,8 +67,10 @@ router.post(
       owner: OWNER,
       name: req.body.patientName,
       age: req.body.age,
+      sex: req.body.sex,
       height: req.body.height,
-      weight: req.body.weight
+      weight: req.body.weight,
+      yesorno: req.body.yesorno
     });
 
     NEW_PATIENT.save().then(patient => res.json(patient));

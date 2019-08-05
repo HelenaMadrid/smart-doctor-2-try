@@ -14,8 +14,10 @@ class Patient extends Component {
     edit: false,
     name: "",
     age: "",
+    sex: "",
     height: "",
     weight: "",
+    yesorno: "",
     id: "",
     owner: {},
     date: ""
@@ -136,6 +138,10 @@ class Patient extends Component {
             <div className="form-label">{patient.height}</div>
             <h2 className="header">Weight</h2>
             <div className="form-label">{patient.weight}</div>
+            <h2 className="header">Sex</h2>
+            <div className="form-label">{patient.sex}</div>
+            <h2 className="header">cancer in family?</h2>
+            <div className="form-label">{patient.yesorno}</div>
           </div>
 
           {/* <div className="tasks-container">

@@ -15,8 +15,10 @@ class Modal extends Component {
   state = {
     patientName: "",
     age: "",
+    sex: "",
     height: "",
-    weight: ""
+    weight: "",
+    yesorno: false
   };
 
   componentWillReceiveProps(nextProps) {
@@ -24,24 +26,30 @@ class Modal extends Component {
       this.setState({
         patientName: nextProps.name,
         age: nextProps.age,
+        sex: nextProps.sex,
         height: nextProps.height,
-        weight: nextProps.weight
+        weight: nextProps.weight,
+        yesorno: nextProps.yesorno
       });
     }
   }
 
   onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
+    this.setState({ [e.target.id]: e.target.value});
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    console.log(value);
+    this.setState({ [e.target.id]: e.target.value});
   };
-
 
 
   createPatient = () => {
     let patient = {
       patientName: this.state.patientName,
       age: this.state.age,
+      sex: this.state.sex,
       height: this.state.height,
-      weight: this.state.weight
+      weight: this.state.weight,
+      yesorno: this.state.yesorno
     };
 
     this.props.createPatient(patient);
@@ -53,8 +61,10 @@ class Modal extends Component {
       id: this.props.id,
       patientName: this.state.patientName,
       age: this.state.age,
+      sex: this.state.sex,
       height: this.state.height,
-      weight: this.state.weight
+      weight: this.state.weight,
+      yesorno: this.state.yesorno
     };
 
     await this.props.updatePatient(patient);
@@ -72,17 +82,19 @@ class Modal extends Component {
     this.setState({
       patientName: "",
       age: "",
+      sex: "",
       height: "",
       weight: "",
+      yesorno: false
     });
 
-   if(window.location.pathname==="/dashboard"){
-    console.log("no reload "+window.location);
-    
-  }
-  else{
-    window.location.reload(); 
-  }
+    if (window.location.pathname === "/dashboard") {
+      console.log("no reload " + window.location);
+
+    }
+    else {
+      window.location.reload();
+    }
   };
 
   onSelectChange = e => {
@@ -241,6 +253,32 @@ class Modal extends Component {
                 id="weight"
                 type="number"
                 placeholder="patient weight"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <div className="form-label">sex</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.sex}
+                id="sex"
+                type="text"
+                placeholder="patient sex"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <div className="form-label">cancer</div>
+              <input
+                onChange={this.onChange}
+                checked={this.state.yesorno}
+                id="yesorno"
+                type="checkbox"
+                placeholder="family history cancer?"
                 className="form-input"
               />
             </label>
