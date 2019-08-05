@@ -71,6 +71,7 @@ router.post(
       height: req.body.height,
       weight: req.body.weight,
       yesorno: req.body.yesorno
+      
     });
 
     NEW_PATIENT.save().then(patient => res.json(patient));
