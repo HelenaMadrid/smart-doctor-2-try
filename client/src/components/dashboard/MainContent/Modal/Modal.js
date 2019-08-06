@@ -19,7 +19,7 @@ class Modal extends Component {
     height: "",
     weight: "",
     yesorno: false,
-    cancer: ""
+    cancer: false
   };
 
   componentWillReceiveProps(nextProps) {
@@ -38,8 +38,14 @@ class Modal extends Component {
 
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value});
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    console.log(value);
+    // const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    let value = e.target.type;
+    if(value === 'checkbox'){
+      this.setState({ [e.target.id]: e.target.checked});
+      // console.log("value: "+ value + " e.target.checked: " + e.target.checked + " e.target.value: " + e.target.value);
+      return;
+    }
+    
     this.setState({ [e.target.id]: e.target.value});
   };
 
@@ -88,7 +94,8 @@ class Modal extends Component {
       sex: "",
       height: "",
       weight: "",
-      yesorno: false
+      yesorno: false,
+      cancer: false
     });
 
     if (window.location.pathname === "/dashboard") {
@@ -100,9 +107,9 @@ class Modal extends Component {
     }
   };
 
-  onSelectChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
+  // onSelectChange = e => {
+  //   this.setState({ [e.target.id]: e.target.value });
+  // };
 
 
 

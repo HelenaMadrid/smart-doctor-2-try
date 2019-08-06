@@ -14,8 +14,8 @@ class Dashboard extends Component {
     age: "",
     height: "",
     weight: "",
-    // notes: "",
     id: "",
+    yesorno: false,
     owner: {}
   };
 
@@ -34,6 +34,7 @@ class Dashboard extends Component {
       height: height,
       weight: weight,
       id: id,
+      yesorno: false,
       owner: owner
     });
   };
@@ -59,6 +60,7 @@ class Dashboard extends Component {
             patient.height,
             patient.weight,
             patient._id,
+            patient.yesorno,
             patient.owner
           )}
         >
@@ -85,6 +87,7 @@ class Dashboard extends Component {
               height={this.state.height}
               weight={this.state.weight}
               id={this.state.id}
+              yesorno={this.state.yesorno}
               owner={this.state.owner}
             />
           </div>
