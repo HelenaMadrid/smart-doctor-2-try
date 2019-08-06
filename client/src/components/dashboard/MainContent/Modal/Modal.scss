@@ -1,7 +1,7 @@
 @import "../../../../styles/base.scss";
 
 .modal {
-  width: 600px;
+  width: 1000px;
   background: white;
   border: 1px solid $gray;
   animation: fade-in 0.25s;
@@ -10,7 +10,7 @@
   visibility: visible;
   position: fixed;
   top: 8%;
-  height: 650px;
+  height: 900px;
   z-index: 1000;
 }
 
@@ -36,7 +36,11 @@
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin: 1rem;
+  width: 100%;
+  display: inline-block;
+  align-content: center;
+  
 }
 
 .form-label {
@@ -46,6 +50,7 @@
   font-size: 14px;
   color: $darkGray;
   font-family: $code;
+  display: inline-block;
 }
 
 .created-by {
@@ -65,6 +70,7 @@
   font-size: 16px;
   padding: 0 1rem;
   margin-top: 0.5rem;
+  display: inline-block;
 
   &:hover {
     border-color: $gray;
