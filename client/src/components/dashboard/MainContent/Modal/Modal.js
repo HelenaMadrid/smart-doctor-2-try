@@ -18,7 +18,8 @@ class Modal extends Component {
     sex: "",
     height: "",
     weight: "",
-    yesorno: false
+    yesorno: false,
+    cancer: ""
   };
 
   componentWillReceiveProps(nextProps) {
@@ -29,7 +30,8 @@ class Modal extends Component {
         sex: nextProps.sex,
         height: nextProps.height,
         weight: nextProps.weight,
-        yesorno: nextProps.yesorno
+        yesorno: nextProps.yesorno,
+        cancer: nextProps.cancer
       });
     }
   }
@@ -49,7 +51,8 @@ class Modal extends Component {
       sex: this.state.sex,
       height: this.state.height,
       weight: this.state.weight,
-      yesorno: this.state.yesorno
+      yesorno: this.state.yesorno,
+      cancer: this.state.cancer
     };
 
     this.props.createPatient(patient);
@@ -272,13 +275,26 @@ class Modal extends Component {
           </div>
           <div className="form-group">
             <label>
-              <div className="form-label">cancer</div>
+              <div className="form-label">yesorno</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.yesorno}
                 id="yesorno"
                 type="checkbox"
                 placeholder="family history cancer?"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <div className="form-label">cancer</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.cancer}
+                id="cancer"
+                type="text"
+                placeholder="cancer"
                 className="form-input"
               />
             </label>

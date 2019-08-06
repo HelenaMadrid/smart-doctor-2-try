@@ -63,6 +63,48 @@ router.post(
       email: req.user.email
     };
 
+    var historiaClinica = {
+      antecedentesFamiliares:
+      {
+        diabatesMellitus: req.body.diabetesMellitus,
+        cancer: req.body.cancer,
+        hipertensionArterial: req.body.hipertensionArterial,
+        litiasisRenal: req.body.litiasisRenal,
+        hipotiroidismo: req.body.hipotiroidismo,
+        hipertiroidismo: req.body.hipertiroidismo,
+        dislipidemia: req.body.dislipidemia
+      },
+      antecedentesPersonalesPatologicos:
+      {
+        ingestaActualMedicamentos: req.body.ingestaActualMedicamentos,
+        cirugias: req.body.cirugias,
+        transfusiones: req.body.transfusiones,
+        hepatitis: req.body.hepatitis,
+        diabetesMellitus: req.body.diabatesMellitus,
+        litiasisRenal: req.body.litiasisRenal,
+        hipertiroidismo: req.body.hipertiroidismo,
+        hipotiroidismo: req.body.hipotiroidismo
+      },
+      antecedentesPersonalesNoPatologicos:
+      {
+        bebidasAlcoholicas: req.body.bebidasAlcoholicas,
+        drogas: req.body.drogas,
+        realizaEjercicio: req.body.realizaEjercicio,
+        tabaquismo: req.body.tabaquismo
+      },
+      antecedentesGinecologicos:
+      {
+        menarca: req.body.menarca,
+        gestaciones: req.body.gestaciones,
+        continuaMenstruando: req.body.continuaMenstruando,
+        edadDejoMenstruar: req.body.edadDejoMenstruar,
+        embarazo: req.body.embarazo,
+        dificultadEmbarazo: req.body.dificultadEmbarazo,
+        fechaUltimoPapanicolaou: req.body.fechaUltimoPapanicolaou
+      }
+    };
+
+
     const NEW_PATIENT = await new Patient({
       owner: OWNER,
       name: req.body.patientName,
@@ -70,8 +112,9 @@ router.post(
       sex: req.body.sex,
       height: req.body.height,
       weight: req.body.weight,
-      yesorno: req.body.yesorno
-      
+      yesorno: req.body.yesorno,
+      cancer: req.body.cancer,
+      historiaClinica: historiaClinica
     });
 
     NEW_PATIENT.save().then(patient => res.json(patient));
@@ -88,9 +131,9 @@ router.patch(
     let patientFields = {};
 
     patientFields.name = req.body.patientName;
-    patientFields.age=req.body.age;
-    patientFields.height=req.body.height;
-    patientFields.weight=req.body.weight;
+    patientFields.age = req.body.age;
+    patientFields.height = req.body.height;
+    patientFields.weight = req.body.weight;
 
     Patient.findOneAndUpdate(
       { _id: req.body.id },
