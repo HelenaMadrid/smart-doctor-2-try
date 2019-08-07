@@ -1,7 +1,7 @@
 @import "../../../../styles/base.scss";
 
 .modal {
-  width: 1000px;
+  width: 80%;
   background: white;
   border: 1px solid $gray;
   animation: fade-in 0.25s;
@@ -36,7 +36,7 @@
 }
 
 .form-group {
-  margin: 1rem;
+  margin-left: 1rem;
   width: 100%;
   display: inline-block;
   align-content: center;

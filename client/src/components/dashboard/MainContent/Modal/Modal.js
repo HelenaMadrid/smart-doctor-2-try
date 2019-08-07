@@ -331,7 +331,7 @@ class Modal extends Component {
             &times;
           </span>
           <h1 className="header">Create a patient</h1>
-          <div className="form-group">
+          <div className="form-group" style={{ width: "30%" }}>
             <label>
               <div className="form-label" >Patient (required)</div>
               <input
@@ -344,7 +344,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "20%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
               <div className="form-label" >age</div>
               <input
@@ -357,33 +357,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "20%" }}>
-            <label>
-              <div className="form-label">height</div>
-              <input
-                onChange={this.onChange}
-                value={this.state.height}
-                id="height"
-                type="number"
-                placeholder="patient height"
-                className="form-input"
-              />
-            </label>
-          </div>
-          <div className="form-group" style={{ width: "20%" }}>
-            <label>
-              <div className="form-label">weight</div>
-              <input
-                onChange={this.onChange}
-                value={this.state.weight}
-                id="weight"
-                type="number"
-                placeholder="patient weight"
-                className="form-input"
-              />
-            </label>
-          </div>
-          <div className="form-group" style={{ width: "20%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
               <div className="form-label">sex</div>
               <input
@@ -396,8 +370,34 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Familiares</h1>
           <div className="form-group" style={{ width: "10%" }}>
+            <label>
+              <div className="form-label">height</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.height}
+                id="height"
+                type="number"
+                placeholder="patient height"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group" style={{ width: "10%" }}>
+            <label>
+              <div className="form-label">weight</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.weight}
+                id="weight"
+                type="number"
+                placeholder="patient weight"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <h1 className="header">Antecedentes Familiares</h1>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Diabates Mellitus</div>
               <input
@@ -409,7 +409,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Cancer</div>
               <input
@@ -421,7 +421,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Hipertension Arterial</div>
               <input
@@ -433,7 +433,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Litiasis Renal</div>
               <input
@@ -445,7 +445,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Hipo- tiroidismo</div>
               <input
@@ -457,7 +457,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Hiper- tiroidismo</div>
               <input
@@ -469,7 +469,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Dislipidemia</div>
               <input
@@ -521,7 +521,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "20%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Hepatitis</div>
               <input
@@ -533,7 +533,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">diabetes Mellitus</div>
               <input
@@ -545,7 +545,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Litiasis Renal</div>
               <input
@@ -557,7 +557,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Hipo- tiroidismo</div>
               <input
@@ -569,7 +569,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Hiper- tiroidismo</div>
               <input
@@ -581,73 +581,126 @@ class Modal extends Component {
               />
             </label>
           </div>
+          <h1 className="header">Antecedentes Personales Patológicos</h1>
+          <div className="form-group" style={{ width: "7%" }}>
+            <label>
+              <div className="form-label">Bebidas Alcoholicas</div>
+              <input
+                onChange={this.onChange}
+                checked={this.state.bebidasAlcoholicas}
+                id="bebidasAlcoholicas"
+                type="checkbox"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group" style={{ width: "5%" }}>
+            <label>
+              <div className="form-label">Drogas</div>
+              <input
+                onChange={this.onChange}
+                checked={this.state.drogas}
+                id="drogas"
+                type="checkbox"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group" style={{ width: "7%" }}>
+            <label>
+              <div className="form-label">Realiza Ejercicio</div>
+              <input
+                onChange={this.onChange}
+                checked={this.state.realizaEjercicio}
+                id="realizaEjercicio"
+                type="checkbox"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group" style={{ width: "7%" }}>
+            <label>
+              <div className="form-label">Tabaquismo</div>
+              <input
+                onChange={this.onChange}
+                checked={this.state.tabaquismo}
+                id="tabaquismo"
+                type="checkbox"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <h1 className="header">Antecedentes Ginecológicos</h1>
+          <div className="form-group" style={{ width: "5%" }}>
+            <label>
+              <div className="form-label">Menarca</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.menarca}
+                id="menarca"
+                type="number"
+                placeholder="menarca"
+                className="form-input"
+              />
+            </label>
+          </div>
           <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">hipotiroidismo</div>
+              <div className="form-label">Gestaciones</div>
               <input
                 onChange={this.onChange}
-                checked={this.state.hipotiroidismo}
-                id="hipotiroidismo"
+                value={this.state.gestaciones}
+                id="gestaciones"
+                type="number"
+                placeholder="gestaciones"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group" style={{ width: "15%" }}>
+            <label>
+              <div className="form-label">Continua Menstruando</div>
+              <input
+                onChange={this.onChange}
+                checked={this.state.continuaMenstruando}
+                id="continuaMenstruando"
                 type="checkbox"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "20%" }}>
+          <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">hipotiroidismo</div>
+              <div className="form-label">Edad Dejó Menstruar</div>
               <input
                 onChange={this.onChange}
-                checked={this.state.hipotiroidismo}
-                id="hipotiroidismo"
+                value={this.state.edadDejoMenstruar}
+                id="edadDejoMenstruar"
+                type="number"
+                placeholder="edadDejoMenstruar"
+                className="form-input"
+              />
+            </label>
+          </div>
+          <div className="form-group" style={{ width: "5%" }}>
+            <label>
+              <div className="form-label">Embarazo</div>
+              <input
+                onChange={this.onChange}
+                checked={this.state.embarazo}
+                id="embarazo"
                 type="checkbox"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "20%" }}>
+          <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">hipotiroidismo</div>
+              <div className="form-label">Dificultad Embarazo</div>
               <input
                 onChange={this.onChange}
-                checked={this.state.hipotiroidismo}
-                id="hipotiroidismo"
-                type="checkbox"
-                className="form-input"
-              />
-            </label>
-          </div>
-          <div className="form-group" style={{ width: "20%" }}>
-            <label>
-              <div className="form-label">hipotiroidismo</div>
-              <input
-                onChange={this.onChange}
-                checked={this.state.hipotiroidismo}
-                id="hipotiroidismo"
-                type="checkbox"
-                className="form-input"
-              />
-            </label>
-          </div>
-          <div className="form-group" style={{ width: "20%" }}>
-            <label>
-              <div className="form-label">hipotiroidismo</div>
-              <input
-                onChange={this.onChange}
-                checked={this.state.hipotiroidismo}
-                id="hipotiroidismo"
-                type="checkbox"
-                className="form-input"
-              />
-            </label>
-          </div>
-          <div className="form-group" style={{ width: "20%" }}>
-            <label>
-              <div className="form-label">hipotiroidismo</div>
-              <input
-                onChange={this.onChange}
-                checked={this.state.hipotiroidismo}
-                id="hipotiroidismo"
+                checked={this.state.dificultadEmbarazo}
+                id="dificultadEmbarazo"
                 type="checkbox"
                 className="form-input"
               />
