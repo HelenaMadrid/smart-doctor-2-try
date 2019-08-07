@@ -303,7 +303,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div>
+          <div className="buttons">
             <button
               className="main-btn update-patient"
               onClick={this.updatePatient.bind(this, this.props.id)}
@@ -657,7 +657,8 @@ class Modal extends Component {
 
           <div>
             <button
-              className="main-btn create-patient"
+              // className="main-btn create-patient"
+              className="main-btn"
               onClick={this.createPatient}
             >
               Create Patient
