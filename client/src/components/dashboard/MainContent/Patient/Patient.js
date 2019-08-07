@@ -134,14 +134,15 @@ class Patient extends Component {
           <div className="tasks-container">
             <h2 className="header">Age</h2>
             <div className="form-label">{patient.age}</div>
+            <h2 className="header">Sex</h2>
+            <div className="form-label">{patient.sex}</div>
             <h2 className="header">Height</h2>
             <div className="form-label">{patient.height}</div>
             <h2 className="header">Weight</h2>
             <div className="form-label">{patient.weight}</div>
-            <h2 className="header">Sex</h2>
-            <div className="form-label">{patient.sex}</div>
+            
             <h2 className="header">cancer in family?</h2>
-            <div className="form-label">{patient.yesorno}</div>
+            {/* <div className="form-label">{patient.historiaClinica.}</div> */}
           </div>
 
           {/* <div className="tasks-container">

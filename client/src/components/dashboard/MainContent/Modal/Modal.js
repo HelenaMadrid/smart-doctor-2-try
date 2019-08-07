@@ -707,7 +707,6 @@ class Modal extends Component {
             </label>
           </div>
 
-
           <div>
             <button
               // className="main-btn create-patient"

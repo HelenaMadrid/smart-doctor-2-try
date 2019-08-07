@@ -80,10 +80,10 @@ router.post(
         cirugias: req.body.cirugias,
         transfusiones: req.body.transfusiones,
         hepatitis: req.body.hepatitis,
-        diabetesMellitus: req.body.diabatesMellitus,
-        litiasisRenal: req.body.litiasisRenal,
-        hipertiroidismo: req.body.hipertiroidismo,
-        hipotiroidismo: req.body.hipotiroidismo
+        diabetesMellitus: req.body.diabatesMellitusPersonal,
+        litiasisRenal: req.body.litiasisRenalPersonal,
+        hipertiroidismo: req.body.hipertiroidismoPersonal,
+        hipotiroidismo: req.body.hipotiroidismoPersonal
       },
       antecedentesPersonalesNoPatologicos:
       {
