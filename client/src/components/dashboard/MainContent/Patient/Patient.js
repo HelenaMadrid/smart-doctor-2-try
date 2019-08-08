@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPatient } from "../../../../actions/patientsActions";
+import JSONPretty from 'react-json-pretty';
+
 
 import Spinner from "../../../common/Spinner";
 import Modal from "../Modal/Modal";
@@ -8,6 +10,7 @@ import Modal from "../Modal/Modal";
 import "../MainContent.scss";
 import "./Patient.scss";
 // import { timingSafeEqual } from "crypto";
+
 
 class Patient extends Component {
   state = {
@@ -52,12 +55,14 @@ class Patient extends Component {
     this.setState({ modal: !this.state.modal, edit: false });
   };
 
-  toggleEditModal = (name, age, sex, height, weight, 
-    // diabetesMellitus, cancer, 
-    // hipertensionArterial, 
-    // litiasisRenal, hipotiroidismo, hipertiroidismo, dislipidemia, 
-    ingestaActualMedicamentos, cirugias,transfusiones,
-    // hepatitis,diabetesMellitusPersonal, litiasisRenalPersonal, hipotiroidismoPersonal, hipertiroidismoPersonal, bebidasAlcoholicas, drogas, realizaEjercicio, tabaquismo, menarca, gestaciones, continuaMenstruando, edadDejoMenstruar, embarazo, dificultadEmbarazo, 
+  toggleEditModal = (name, age, sex, height, weight,
+    diabetesMellitus,
+    cancer, 
+    hipertensionArterial, 
+    litiasisRenal, hipotiroidismo, hipertiroidismo, dislipidemia, 
+    ingestaActualMedicamentos, cirugias, transfusiones,
+    hepatitis,
+    diabetesMellitusPersonal, litiasisRenalPersonal, hipotiroidismoPersonal, hipertiroidismoPersonal, bebidasAlcoholicas, drogas, realizaEjercicio, tabaquismo, menarca, gestaciones, continuaMenstruando, edadDejoMenstruar, embarazo, dificultadEmbarazo, 
     id, owner, e) => {
     e.stopPropagation();
     this.setState({
@@ -68,31 +73,31 @@ class Patient extends Component {
       sex: sex,
       height: height,
       weight: weight,
-      // diabetesMellitus: diabetesMellitus,
-      // cancer: cancer,
-      // hipertensionArterial: hipertensionArterial,
-      // litiasisRenal: litiasisRenal,
-      // hipotiroidismo: hipotiroidismo,
-      // hipertiroidismo: hipertiroidismo,
-      // dislipidemia: dislipidemia,
+      diabetesMellitus: diabetesMellitus,
+      cancer: cancer,
+      hipertensionArterial: hipertensionArterial,
+      litiasisRenal: litiasisRenal,
+      hipotiroidismo: hipotiroidismo,
+      hipertiroidismo: hipertiroidismo,
+      dislipidemia: dislipidemia,
       ingestaActualMedicamentos: ingestaActualMedicamentos,
       cirugias: cirugias,
       transfusiones: transfusiones,
-      // hepatitis: hepatitis,
-      // diabetesMellitusPersonal: diabetesMellitusPersonal,
-      // litiasisRenalPersonal: litiasisRenalPersonal,
-      // hipotiroidismoPersonal: hipotiroidismoPersonal,
-      // hipertiroidismoPersonal: hipertiroidismoPersonal,
-      // bebidasAlcoholicas: bebidasAlcoholicas,
-      // drogas: drogas,
-      // realizaEjercicio: realizaEjercicio,
-      // tabaquismo: tabaquismo,
-      // menarca: menarca,
-      // gestaciones: gestaciones,
-      // continuaMenstruando: continuaMenstruando,
-      // edadDejoMenstruar: edadDejoMenstruar,
-      // embarazo: embarazo,
-      // dificultadEmbarazo: dificultadEmbarazo,
+      hepatitis: hepatitis,
+      diabetesMellitusPersonal: diabetesMellitusPersonal,
+      litiasisRenalPersonal: litiasisRenalPersonal,
+      hipotiroidismoPersonal: hipotiroidismoPersonal,
+      hipertiroidismoPersonal: hipertiroidismoPersonal,
+      bebidasAlcoholicas: bebidasAlcoholicas,
+      drogas: drogas,
+      realizaEjercicio: realizaEjercicio,
+      tabaquismo: tabaquismo,
+      menarca: menarca,
+      gestaciones: gestaciones,
+      continuaMenstruando: continuaMenstruando,
+      edadDejoMenstruar: edadDejoMenstruar,
+      embarazo: embarazo,
+      dificultadEmbarazo: dificultadEmbarazo,
       id: id,
       owner: owner
     });
@@ -156,17 +161,33 @@ class Patient extends Component {
   // };
 
   render() {
-
     if (
-      this.props.patient 
+      this.props.patient
       &&
-      !this.props.patients.patientLoading
+      this.props.patient.antecedentesFamiliares
+      &&
+      this.props.patient.antecedentesPersonalesNoPatologicos
+      &&
+      this.props.patient.antecedentesPersonalesPatologicos
+      &&
+      this.props.patient.antecedentesGinecologicos
+      // !this.props.patients.patientLoading
     ) {
+
       const { patient } = this.props;
+      const { antecedentesFamiliares, antecedentesGinecologicos, antecedentesPersonalesNoPatologicos, antecedentesPersonalesPatologicos } = patient;
       console.log(patient);
+      console.log(antecedentesFamiliares);
+      console.log(antecedentesFamiliares.cancer);
+      console.log(antecedentesGinecologicos.embarazo);
+      console.log(antecedentesPersonalesNoPatologicos.drogas);
+      console.log(antecedentesPersonalesPatologicos.hepatitis);
+      // console.log(historiaClinica);
+      // console.log(patient.historiaClinica);
+      // console.log(historiaClinica);
+      // console.log(antecedentesFamiliares.cancer);
 
       return (
-
         <div className="main-content">
           <h1 className="patient-header">{patient.name}</h1>
           <button
@@ -177,28 +198,31 @@ class Patient extends Component {
               patient.sex,
               patient.height,
               patient.weight,
-              // patient.diabetesMellitus,
-              // patient.cancer,
-              // patient.hipertensionArterial,
-              // patient.dislipidemia,
-              patient.ingestaActualMedicamentos,
-              patient.cirugias,
-              patient.transfusiones,
-              // patient.hepatitis,
-              // patient.diabetesMellitusPersonal,
-              // patient.litiasisRenalPersonal,
-              // patient.hipotiroidismoPersonal,
-              // patient.hipertiroidismoPersonal,
-              // patient.bebidasAlcoholicas,
-              // patient.drogas,
-              // patient.realizaEjercicio,
-              // patient.tabaquismo,
-              // patient.menarca,
-              // patient.gestaciones,
-              // patient.continuaMenstruando,
-              // patient.edadDejoMenstruar,
-              // patient.embarazo,
-              // patient.dificultadEmbarazo,
+              patient.antecedentesFamiliares.diabetesMellitus,
+              patient.antecedentesFamiliares.cancer,
+              patient.antecedentesFamiliares.hipertensionArterial,
+              patient.antecedentesFamiliares.litiasisRenal,
+              patient.antecedentesFamiliares.hipotiroidismo,
+              patient.antecedentesFamiliares.hipertiroidismo,
+              patient.antecedentesFamiliares.dislipidemia,
+              patient.antecedentesPersonalesPatologicos.ingestaActualMedicamentos,
+              patient.antecedentesPersonalesPatologicos.cirugias,
+              patient.antecedentesPersonalesPatologicos.transfusiones,
+              patient.antecedentesPersonalesPatologicos.hepatitis,
+              patient.antecedentesPersonalesPatologicos.diabetesMellitusPersonal,
+              patient.antecedentesPersonalesPatologicos.litiasisRenalPersonal,
+              patient.antecedentesPersonalesPatologicos.hipotiroidismoPersonal,
+              patient.antecedentesPersonalesPatologicos.hipertiroidismoPersonal,
+              patient.antecedentesPersonalesNoPatologicos.bebidasAlcoholicas,
+              patient.antecedentesPersonalesNoPatologicos.drogas,
+              patient.antecedentesPersonalesNoPatologicos.realizaEjercicio,
+              patient.antecedentesPersonalesNoPatologicos.tabaquismo,
+              patient.antecedentesGinecologicos.menarca,
+              patient.antecedentesGinecologicos.gestaciones,
+              patient.antecedentesGinecologicos.continuaMenstruando,
+              patient.antecedentesGinecologicos.edadDejoMenstruar,
+              patient.antecedentesGinecologicos.embarazo,
+              patient.antecedentesGinecologicos.dificultadEmbarazo,
               patient._id,
               patient.owner
             )}
@@ -217,31 +241,31 @@ class Patient extends Component {
               sex={this.state.sex}
               height={this.state.height}
               weight={this.state.weight}
-              // diabetesMellitus={this.state.diabetesMellitus}
-              // cancer={this.state.cancer}
-              // hipertensionArterial={this.state.hipertensionArterial}
-              // litiasisRenal={this.state.litiasisRenal}
-              // hipotiroidismo={this.state.hipotiroidismo}
-              // hipertiroidismo={this.state.hipertiroidismo}
-              // dislipidemia={this.state.dislipidemia}
+              diabetesMellitus={this.state.diabetesMellitus}
+              cancer={this.state.cancer}
+              hipertensionArterial={this.state.hipertensionArterial}
+              litiasisRenal={this.state.litiasisRenal}
+              hipotiroidismo={this.state.hipotiroidismo}
+              hipertiroidismo={this.state.hipertiroidismo}
+              dislipidemia={this.state.dislipidemia}
               ingestaActualMedicamentos={this.state.ingestaActualMedicamentos}
               cirugias={this.state.cirugias}
               transfusiones={this.state.transfusiones}
-              // hepatitis={this.state.hepatitis}
-              // diabetesMellitusPersonal={this.state.diabetesMellitusPersonal}
-              // litiasisRenalPersonal={this.state.litiasisRenalPersonal}
-              // hipotiroidismoPersonal={this.state.hipotiroidismoPersonal}
-              // hipertiroidismoPersonal={this.state.hipertiroidismoPersonal}
-              // bebidasAlcoholicas={this.state.bebidasAlcoholicas}
-              // drogas={this.state.drogas}
-              // realizaEjercicio={this.state.realizaEjercicio}
-              // tabaquismo={this.state.tabaquismo}
-              // menarca={this.state.menarca}
-              // gestaciones={this.state.gestaciones}
-              // continuaMenstruando={this.state.continuaMenstruando}
-              // edadDejoMenstruar={this.state.edadDejoMenstruar}
-              // embarazo={this.state.embarazo}
-              // dificultadEmbarazo={this.state.dificultadEmbarazo}
+              hepatitis={this.state.hepatitis}
+              diabetesMellitusPersonal={this.state.diabetesMellitusPersonal}
+              litiasisRenalPersonal={this.state.litiasisRenalPersonal}
+              hipotiroidismoPersonal={this.state.hipotiroidismoPersonal}
+              hipertiroidismoPersonal={this.state.hipertiroidismoPersonal}
+              bebidasAlcoholicas={this.state.bebidasAlcoholicas}
+              drogas={this.state.drogas}
+              realizaEjercicio={this.state.realizaEjercicio}
+              tabaquismo={this.state.tabaquismo}
+              menarca={this.state.menarca}
+              gestaciones={this.state.gestaciones}
+              continuaMenstruando={this.state.continuaMenstruando}
+              edadDejoMenstruar={this.state.edadDejoMenstruar}
+              embarazo={this.state.embarazo}
+              dificultadEmbarazo={this.state.dificultadEmbarazo}
               id={this.state.id}
               owner={this.state.owner}
             />
@@ -263,18 +287,147 @@ class Patient extends Component {
             <div className="patient-tasks">{tasksList}</div>
           </div> */}
           <div className="tasks-container">
-            <h2 className="header">Age</h2>
-            <div className="form-label">{patient.age}</div>
-            <h2 className="header">Sex</h2>
-            <div className="form-label">{patient.sex}</div>
-            <h2 className="header">Height</h2>
-            <div className="form-label">{patient.height}</div>
-            <h2 className="header">Weight</h2>
-            <div className="form-label">{patient.weight}</div>
-            <h2 className="header">cancer</h2>
-            {/* <div className="form-label">{patient.owner.email}</div> */}
-            {/* <div className="form-label">{patient.historiaClinica.antecedentesFamiliares.hipertiroidismo}</div> */}
-       
+            <div className="info-general">
+              <div className="info-gral-patient">
+                <h2 className="header">Age</h2>
+                <div className="form-label">{patient.age}</div>
+              </div>
+              <div className="info-gral-patient">
+                <h2 className="header">Sex</h2>
+                <div className="form-label">{patient.sex}</div>
+              </div>
+              <div className="info-gral-patient">
+                <h2 className="header">Height</h2>
+                <div className="form-label">{patient.height}</div>
+              </div>
+              <div className="info-gral-patient">
+                <h2 className="header">Weight</h2>
+                <div className="form-label">{patient.weight}</div>
+              </div>
+            </div>
+            <div className="antecedentesFamiliares">
+              <h1>Antecedentes Familiares</h1>
+              <div className="info-antecedentes">
+                <h2 className="header">diabetesMellitus</h2>
+                <div className="form-label">{String(patient.antecedentesFamiliares.diabetesMellitus)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">cancer</h2>
+                <div className="form-label">{String(patient.antecedentesFamiliares.cancer)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">hipertensionArterial</h2>
+                <div className="form-label">{String(patient.antecedentesFamiliares.hipertensionArterial)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">litiasisRenal</h2>
+                <div className="form-label">{String(patient.antecedentesFamiliares.litiasisRenal)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">hipotiroidismo</h2>
+                <div className="form-label">{String(patient.antecedentesFamiliares.hipotiroidismo)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">hipertiroidismo</h2>
+                <div className="form-label">{String(patient.antecedentesFamiliares.hipertiroidismo)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">dislipidemia</h2>
+                <div className="form-label">{String(patient.antecedentesFamiliares.dislipidemia)}</div>
+              </div>
+            </div>
+            <div className="antecedentesPersonalesPatologicos">
+              <h1>Antecedentes Personales Patologicos</h1>
+              <div className="info-antecedentes">
+                <h2 className="header">ingestaActualMedicamentos</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.ingestaActualMedicamentos)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">cirugias</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.cirugias)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">transfusiones</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.transfusiones)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">hepatitis</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hepatitis)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">diabetesMellitus</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.diabetesMellitusPersonal)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">litiasisRenal</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.litiasisRenalPersonal)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">hipotiroidismo</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hipotiroidismoPersonal)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">hipertiroidismoPersonal</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hipertiroidismoPersonal)}</div>
+              </div>
+            </div>
+            <div className="antecedentesPersonalesNoPatologicos">
+              <h1>Antecedentes Personales No Patologicos</h1>
+              <div className="info-antecedentes">
+                <h2 className="header">bebidasAlcoholicas</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesNoPatologicos.bebidasAlcoholicas)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">drogas</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesNoPatologicos.drogas)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">realizaEjercicio</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesNoPatologicos.realizaEjercicio)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">tabaquismo</h2>
+                <div className="form-label">{String(patient.antecedentesPersonalesNoPatologicos.tabaquismo)}</div>
+              </div>
+            </div>
+            <div className="antecedentesGinecologicos">
+              <h1>Antecedentes Ginecologicos</h1>
+              <div className="info-antecedentes">
+                <h2 className="header">menarca</h2>
+                <div className="form-label">{String(patient.antecedentesGinecologicos.menarca)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">gestaciones</h2>
+                <div className="form-label">{String(patient.antecedentesGinecologicos.gestaciones)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">continuaMenstruando</h2>
+                <div className="form-label">{String(patient.antecedentesGinecologicos.continuaMenstruando)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">edadDejoMenstruar</h2>
+                <div className="form-label">{String(patient.antecedentesGinecologicos.edadDejoMenstruar)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">embarazo</h2>
+                <div className="form-label">{String(patient.antecedentesGinecologicos.embarazo)}</div>
+              </div>
+              <div className="info-antecedentes">
+                <h2 className="header">dificultadEmbarazo</h2>
+                <div className="form-label">{String(patient.antecedentesGinecologicos.dificultadEmbarazo)}</div>
+              </div>
+            </div>
+
+            <div className="form-label">{JSON.stringify(patient.antecedentesFamiliares)}</div>
+            <JSONPretty id="json-pretty" data={patient.antecedentesFamiliares}></JSONPretty>
+            <JSONPretty id="json-pretty" data={patient.antecedentesPersonalesNoPatologicos}></JSONPretty>
+            <JSONPretty id="json-pretty" data={patient.antecedentesPersonalesPatologicos}></JSONPretty>
+            <JSONPretty id="json-pretty" data={patient.antecedentesGinecologicos}></JSONPretty>
+
+
+
+
+
           </div>
 
           {/* <div className="tasks-container">
@@ -292,18 +445,20 @@ class Patient extends Component {
       );
     }
 
-    return (
-      <div className="patient-spinner">
-        <Spinner />
-      </div>
-    );
+    else {
+      return (
+        <div className="patient-spinner">
+          <Spinner />
+        </div>
+      );
+    }
   }
 }
 
 const mapStateToProps = state => ({
   auth: state.auth,
   patient: state.patients.patient,
-  patients: state.patients
+  // patients: state.patients
 });
 
 export default connect(

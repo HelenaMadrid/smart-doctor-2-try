@@ -12,10 +12,50 @@ class Dashboard extends Component {
     edit: false,
     name: "",
     age: "",
+    sex: "",
     height: "",
     weight: "",
+    historiaClinica: {
+      antecedentesFamiliares:
+      {
+        diabetesMellitus: false,
+        cancer: false,
+        hipertensionArterial: false,
+        litiasisRenal: false,
+        hipotiroidismo: false,
+        hipertiroidismo: false,
+        dislipidemia: false,
+      },
+      antecedentesPersonalesPatologicos:
+      {
+        ingestaActualMedicamentos: "",
+        cirugias: "",
+        transfusiones: "",
+        hepatitis: false,
+        diabetesMellitus: false,
+        litiasisRenal: false,
+        hipertiroidismo: false,
+        hipotiroidismo: false,
+      },
+      antecedentesPersonalesNoPatologicos:
+      {
+        bebidasAlcoholicas: false,
+        drogas: false,
+        realizaEjercicio: false,
+        tabaquismo: false,
+      },
+      antecedentesGinecologicos:
+      {
+        menarca: "",
+        gestaciones: "",
+        continuaMenstruando: false,
+        edadDejoMenstruar: "",
+        embarazo: false,
+        dificultadEmbarazo: false
+        // fechaUltimoPapanicolaou: req.body.fechaUltimoPapanicolaou
+      }
+    },
     id: "",
-    yesorno: false,
     owner: {}
   };
 
@@ -66,12 +106,12 @@ class Dashboard extends Component {
               onClose={this.toggleModal}
               modal={this.state.modal}
               edit={this.state.edit}
-              // name={this.state.name}
-              // age={this.state.age}
-              // height={this.state.height}
-              // weight={this.state.weight}
-              // id={this.state.id}
-              // owner={this.state.owner}
+            // name={this.state.name}
+            // age={this.state.age}
+            // height={this.state.height}
+            // weight={this.state.weight}
+            // id={this.state.id}
+            // owner={this.state.owner}
             />
           </div>
           <div className="patients-wrapper">{patientData}</div>

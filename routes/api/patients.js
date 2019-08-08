@@ -38,7 +38,7 @@ router.get(
   (req, res) => {
     let id = req.params.id;
     Patient.findById(id).then(patient => res.json(patient));
-    
+
   }
 );
 
@@ -55,47 +55,44 @@ router.post(
       email: req.user.email
     };
 
-    var historiaClinica = {
-      antecedentesFamiliares:
-      {
-        diabetesMellitus: req.body.diabetesMellitus,
-        cancer: req.body.cancer,
-        hipertensionArterial: req.body.hipertensionArterial,
-        litiasisRenal: req.body.litiasisRenal,
-        hipotiroidismo: req.body.hipotiroidismo,
-        hipertiroidismo: req.body.hipertiroidismo,
-        dislipidemia: req.body.dislipidemia
-      },
-      antecedentesPersonalesPatologicos:
-      {
-        ingestaActualMedicamentos: req.body.ingestaActualMedicamentos,
-        cirugias: req.body.cirugias,
-        transfusiones: req.body.transfusiones,
-        hepatitis: req.body.hepatitis,
-        diabetesMellitus: req.body.diabetesMellitusPersonal,
-        litiasisRenal: req.body.litiasisRenalPersonal,
-        hipertiroidismo: req.body.hipertiroidismoPersonal,
-        hipotiroidismo: req.body.hipotiroidismoPersonal
-      },
-      antecedentesPersonalesNoPatologicos:
-      {
-        bebidasAlcoholicas: req.body.bebidasAlcoholicas,
-        drogas: req.body.drogas,
-        realizaEjercicio: req.body.realizaEjercicio,
-        tabaquismo: req.body.tabaquismo
-      },
-      antecedentesGinecologicos:
-      {
-        menarca: req.body.menarca,
-        gestaciones: req.body.gestaciones,
-        continuaMenstruando: req.body.continuaMenstruando,
-        edadDejoMenstruar: req.body.edadDejoMenstruar,
-        embarazo: req.body.embarazo,
-        dificultadEmbarazo: req.body.dificultadEmbarazo,
-        fechaUltimoPapanicolaou: req.body.fechaUltimoPapanicolaou
-      }
+    var antecedentesFamiliares =
+    {
+      diabetesMellitus: req.body.diabetesMellitus,
+      cancer: req.body.cancer,
+      hipertensionArterial: req.body.hipertensionArterial,
+      litiasisRenal: req.body.litiasisRenal,
+      hipotiroidismo: req.body.hipotiroidismo,
+      hipertiroidismo: req.body.hipertiroidismo,
+      dislipidemia: req.body.dislipidemia
     };
-
+    var antecedentesPersonalesPatologicos =
+    {
+      ingestaActualMedicamentos: req.body.ingestaActualMedicamentos,
+      cirugias: req.body.cirugias,
+      transfusiones: req.body.transfusiones,
+      hepatitis: req.body.hepatitis,
+      diabetesMellitus: req.body.diabetesMellitusPersonal,
+      litiasisRenal: req.body.litiasisRenalPersonal,
+      hipertiroidismo: req.body.hipertiroidismoPersonal,
+      hipotiroidismo: req.body.hipotiroidismoPersonal
+    };
+    var antecedentesPersonalesNoPatologicos =
+    {
+      bebidasAlcoholicas: req.body.bebidasAlcoholicas,
+      drogas: req.body.drogas,
+      realizaEjercicio: req.body.realizaEjercicio,
+      tabaquismo: req.body.tabaquismo
+    };
+    var antecedentesGinecologicos =
+    {
+      menarca: req.body.menarca,
+      gestaciones: req.body.gestaciones,
+      continuaMenstruando: req.body.continuaMenstruando,
+      edadDejoMenstruar: req.body.edadDejoMenstruar,
+      embarazo: req.body.embarazo,
+      dificultadEmbarazo: req.body.dificultadEmbarazo,
+      fechaUltimoPapanicolaou: req.body.fechaUltimoPapanicolaou
+    };
 
     const NEW_PATIENT = await new Patient({
       owner: OWNER,
@@ -104,7 +101,10 @@ router.post(
       sex: req.body.sex,
       height: req.body.height,
       weight: req.body.weight,
-      historiaClinica: historiaClinica
+      antecedentesFamiliares: antecedentesFamiliares,
+      antecedentesPersonalesPatologicos: antecedentesPersonalesPatologicos,
+      antecedentesPersonalesNoPatologicos: antecedentesPersonalesNoPatologicos,
+      antecedentesGinecologicos: antecedentesGinecologicos
     });
 
     NEW_PATIENT.save().then(patient => res.json(patient));
@@ -120,45 +120,43 @@ router.patch(
   (req, res) => {
     let patientFields = {};
 
-    var historiaClinica = {
-      antecedentesFamiliares:
-      {
-        diabetesMellitus: req.body.diabetesMellitus,
-        cancer: req.body.cancer,
-        hipertensionArterial: req.body.hipertensionArterial,
-        litiasisRenal: req.body.litiasisRenal,
-        hipotiroidismo: req.body.hipotiroidismo,
-        hipertiroidismo: req.body.hipertiroidismo,
-        dislipidemia: req.body.dislipidemia
-      },
-      antecedentesPersonalesPatologicos:
-      {
-        ingestaActualMedicamentos: req.body.ingestaActualMedicamentos,
-        cirugias: req.body.cirugias,
-        transfusiones: req.body.transfusiones,
-        hepatitis: req.body.hepatitis,
-        diabetesMellitus: req.body.diabetesMellitusPersonal,
-        litiasisRenal: req.body.litiasisRenalPersonal,
-        hipertiroidismo: req.body.hipertiroidismoPersonal,
-        hipotiroidismo: req.body.hipotiroidismoPersonal
-      },
-      antecedentesPersonalesNoPatologicos:
-      {
-        bebidasAlcoholicas: req.body.bebidasAlcoholicas,
-        drogas: req.body.drogas,
-        realizaEjercicio: req.body.realizaEjercicio,
-        tabaquismo: req.body.tabaquismo
-      },
-      antecedentesGinecologicos:
-      {
-        menarca: req.body.menarca,
-        gestaciones: req.body.gestaciones,
-        continuaMenstruando: req.body.continuaMenstruando,
-        edadDejoMenstruar: req.body.edadDejoMenstruar,
-        embarazo: req.body.embarazo,
-        dificultadEmbarazo: req.body.dificultadEmbarazo,
-        fechaUltimoPapanicolaou: req.body.fechaUltimoPapanicolaou
-      }
+    var antecedentesFamiliares =
+    {
+      diabetesMellitus: req.body.diabetesMellitus,
+      cancer: req.body.cancer,
+      hipertensionArterial: req.body.hipertensionArterial,
+      litiasisRenal: req.body.litiasisRenal,
+      hipotiroidismo: req.body.hipotiroidismo,
+      hipertiroidismo: req.body.hipertiroidismo,
+      dislipidemia: req.body.dislipidemia
+    };
+    var antecedentesPersonalesPatologicos =
+    {
+      ingestaActualMedicamentos: req.body.ingestaActualMedicamentos,
+      cirugias: req.body.cirugias,
+      transfusiones: req.body.transfusiones,
+      hepatitis: req.body.hepatitis,
+      diabetesMellitus: req.body.diabetesMellitusPersonal,
+      litiasisRenal: req.body.litiasisRenalPersonal,
+      hipertiroidismo: req.body.hipertiroidismoPersonal,
+      hipotiroidismo: req.body.hipotiroidismoPersonal
+    };
+    var antecedentesPersonalesNoPatologicos =
+    {
+      bebidasAlcoholicas: req.body.bebidasAlcoholicas,
+      drogas: req.body.drogas,
+      realizaEjercicio: req.body.realizaEjercicio,
+      tabaquismo: req.body.tabaquismo
+    };
+    var antecedentesGinecologicos =
+    {
+      menarca: req.body.menarca,
+      gestaciones: req.body.gestaciones,
+      continuaMenstruando: req.body.continuaMenstruando,
+      edadDejoMenstruar: req.body.edadDejoMenstruar,
+      embarazo: req.body.embarazo,
+      dificultadEmbarazo: req.body.dificultadEmbarazo,
+      fechaUltimoPapanicolaou: req.body.fechaUltimoPapanicolaou
     };
 
     patientFields.name = req.body.patientName;
@@ -166,7 +164,10 @@ router.patch(
     patientFields.height = req.body.height;
     patientFields.weight = req.body.weight;
     patientFields.sex = req.body.sex;
-    patientFields.historiaClinica = historiaClinica;
+    patientFields.antecedentesFamiliares = antecedentesFamiliares;
+    patientFields.antecedentesPersonalesPatologicos=antecedentesPersonalesPatologicos;
+    patientFields.antecedentesPersonalesNoPatologicos = antecedentesPersonalesNoPatologicos;
+    patientFields.antecedentesGinecologicos=antecedentesGinecologicos;
 
     Patient.findOneAndUpdate(
       { _id: req.body.id },

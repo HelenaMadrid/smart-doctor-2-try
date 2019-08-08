@@ -2,13 +2,25 @@
 
 .patient-header {
   text-align: center;
-  font-size: 24px;
+  font-size: 36px;
   font-weight: $medium;
   color: $black;
 }
 
 .patient-subheader {
   text-align: center;
+}
+
+.antecedentesFamiliares, .antecedentesPersonalesPatologicos, .antecedentesPersonalesNoPatologicos, .antecedentesGinecologicos, .info-general {
+  color: red;
+  text-align:center;
+  // border: 1px solid brown;
+}
+.info-antecedentes, .info-gral-patient {
+  color: red;
+  text-align: center;
+  display: inline-block;
+  margin: 2rem;
 }
 
 .patient-spinner {

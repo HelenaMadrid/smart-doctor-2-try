@@ -25,99 +25,91 @@ const PatientSchema = new Schema({
   notes: {
     type: String,
   },
-  yesorno: {
-    type: Boolean
+  antecedentesFamiliares:
+  {
+    diabetesMellitus: {
+      type: Boolean
+    },
+    cancer: {
+      type: Boolean
+    },
+    hipertensionArterial: {
+      type: Boolean
+    },
+    litiasisRenal: {
+      type: Boolean
+    },
+    hipotiroidismo: {
+      type: Boolean
+    },
+    hipertiroidismo: {
+      type: Boolean
+    },
+    dislipidemia: {
+      type: Boolean
+    }
   },
-  historiaClinica: {
-    antecedentesFamiliares:
-    {
-      diabetesMellitus: {
-        type: Boolean
-      },
-      cancer: {
-        type: Boolean
-      },
-      hipertensionArterial: {
-        type: Boolean
-      },
-      litiasisRenal: {
-        type: Boolean
-      },
-      hipotiroidismo: {
-        type: Boolean
-      },
-      hipertiroidismo: {
-        type: Boolean
-      },
-      dislipidemia: {
-        type: Boolean
-      }
+  antecedentesPersonalesPatologicos:
+  {
+    ingestaActualMedicamentos: {
+      type: String
     },
-    antecedentesPersonalesPatologicos:
-    {
-      ingestaActualMedicamentos: {
-        type: String
-      },
-      cirugias: {
-        type: String
-      },
-      transfusiones: {
-        type: String
-      },
-      hepatitis: {
-        type: Boolean
-      },
-      diabetesMellitus: {
-        type: Boolean
-      },
-      litiasisRenal: {
-        type: Boolean
-      },
-      hipertiroidismo: {
-        type: Boolean
-      },
-      hipotiroidismo: {
-        type: Boolean
-      }
+    cirugias: {
+      type: String
     },
-    antecedentesPersonalesNoPatologicos:
-    {
-      bebidasAlcoholicas: {
-        type: Boolean
-      },
-      drogas: {
-        type: Boolean
-      },
-      realizaEjercicio: {
-        type: Boolean
-      },
-      tabaquismo: {
-        type: Boolean
-      }
+    transfusiones: {
+      type: String
     },
-    antecedentesGinecologicos:
-    {
-      menarca: {
-        type: Number
-      },
-      gestaciones: {
-        type: Number
-      },
-      continuaMenstruando: {
-        type: Boolean
-      },
-      edadDejoMenstruar: {
-        type: Number
-      },
-      embarazo: {
-        type: Boolean
-      },
-      dificultadEmbarazo: {
-        type: Boolean
-      },
-      fechaUltimoPapanicolaou: {
-        type: Date
-      }
+    hepatitis: {
+      type: Boolean
+    },
+    diabetesMellitus: {
+      type: Boolean
+    },
+    litiasisRenal: {
+      type: Boolean
+    },
+    hipertiroidismo: {
+      type: Boolean
+    },
+    hipotiroidismo: {
+      type: Boolean
+    }
+  },
+  antecedentesPersonalesNoPatologicos:
+  {
+    bebidasAlcoholicas: {
+      type: Boolean
+    },
+    drogas: {
+      type: Boolean
+    },
+    realizaEjercicio: {
+      type: Boolean
+    },
+    tabaquismo: {
+      type: Boolean
+    }
+  },
+  antecedentesGinecologicos:
+  {
+    menarca: {
+      type: Number
+    },
+    gestaciones: {
+      type: Number
+    },
+    continuaMenstruando: {
+      type: Boolean
+    },
+    edadDejoMenstruar: {
+      type: Number
+    },
+    embarazo: {
+      type: Boolean
+    },
+    dificultadEmbarazo: {
+      type: Boolean
     }
   },
   owner: {

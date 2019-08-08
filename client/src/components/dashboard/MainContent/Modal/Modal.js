@@ -43,44 +43,51 @@ class Modal extends Component {
     edadDejoMenstruar: "",
     embarazo: false,
     dificultadEmbarazo: false
-    // fechaUltimoPapanicolaou: "",
 
   };
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.edit) {
-      this.setState({
-        patientName: nextProps.name,
-        age: nextProps.age,
-        sex: nextProps.sex,
-        height: nextProps.height,
-        weight: nextProps.weight,
-        diabetesMellitus: nextProps.diabetesMellitus,
-        cancer: nextProps.cancer,
-        hipertensionArterial: nextProps.hipertensionArterial,
-        litiasisRenal: nextProps.litiasisRenal,
-        hipotiroidismo: nextProps.hipotiroidismo,
-        hipertiroidismo: nextProps.hipertiroidismo,
-        dislipidemia: nextProps.dislipidemia,
-        ingestaActualMedicamentos: nextProps.ingestaActualMedicamentos,
-        cirugias: nextProps.cirugias,
-        transfusiones: nextProps.transfusiones,
-        hepatitis: nextProps.hepatitis,
-        diabetesMellitusPersonal: nextProps.diabetesMellitusPersonal,
-        litiasisRenalPersonal: nextProps.litiasisRenalPersonal,
-        hipotiroidismoPersonal: nextProps.hipotiroidismoPersonal,
-        hipertiroidismoPersonal: nextProps.hipertiroidismoPersonal,
-        bebidasAlcoholicas: nextProps.bebidasAlcoholicas,
-        drogas: nextProps.drogas,
-        realizaEjercicio: nextProps.realizaEjercicio,
-        tabaquismo: nextProps.tabaquismo,
-        menarca: nextProps.menarca,
-        gestaciones: nextProps.gestaciones,
-        continuaMenstruando: nextProps.continuaMenstruando,
-        edadDejoMenstruar: nextProps.edadDejoMenstruar,
-        embarazo: nextProps.embarazo,
-        dificultadEmbarazo: nextProps.dificultadEmbarazo
-      });
+    if (this.props.patient.antecedentesFamiliares
+      &&
+      this.props.patient.antecedentesPersonalesNoPatologicos
+      &&
+      this.props.patient.antecedentesPersonalesPatologicos
+      &&
+      this.props.patient.antecedentesGinecologicos) {
+      if (nextProps.edit) {
+        this.setState({
+          patientName: nextProps.name,
+          age: nextProps.age,
+          sex: nextProps.sex,
+          height: nextProps.height,
+          weight: nextProps.weight,
+          diabetesMellitus: nextProps.diabetesMellitus,
+          cancer: nextProps.cancer,
+          hipertensionArterial: nextProps.hipertensionArterial,
+          litiasisRenal: nextProps.litiasisRenal,
+          hipotiroidismo: nextProps.hipotiroidismo,
+          hipertiroidismo: nextProps.hipertiroidismo,
+          dislipidemia: nextProps.dislipidemia,
+          ingestaActualMedicamentos: nextProps.ingestaActualMedicamentos,
+          cirugias: nextProps.cirugias,
+          transfusiones: nextProps.transfusiones,
+          hepatitis: nextProps.hepatitis,
+          diabetesMellitusPersonal: nextProps.diabetesMellitusPersonal,
+          litiasisRenalPersonal: nextProps.litiasisRenalPersonal,
+          hipotiroidismoPersonal: nextProps.hipotiroidismoPersonal,
+          hipertiroidismoPersonal: nextProps.hipertiroidismoPersonal,
+          bebidasAlcoholicas: nextProps.bebidasAlcoholicas,
+          drogas: nextProps.drogas,
+          realizaEjercicio: nextProps.realizaEjercicio,
+          tabaquismo: nextProps.tabaquismo,
+          menarca: nextProps.menarca,
+          gestaciones: nextProps.gestaciones,
+          continuaMenstruando: nextProps.continuaMenstruando,
+          edadDejoMenstruar: nextProps.edadDejoMenstruar,
+          embarazo: nextProps.embarazo,
+          dificultadEmbarazo: nextProps.dificultadEmbarazo
+        });
+      }
     }
   }
 
@@ -96,7 +103,6 @@ class Modal extends Component {
 
     this.setState({ [e.target.id]: e.target.value });
   };
-
 
   createPatient = () => {
     let patient = {
@@ -225,9 +231,9 @@ class Modal extends Component {
     }
   };
 
-  // onSelectChange = e => {
-  //   this.setState({ [e.target.id]: e.target.value });
-  // };
+  onSelectChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
 
   render() {
     if (!this.props.modal) {
@@ -241,7 +247,21 @@ class Modal extends Component {
     };
 
     // Edit patient modal
-    if (this.props.edit) {
+
+    if (this.props.edit && this.props.patient
+      &&
+      this.props.patient.antecedentesFamiliares
+      &&
+      this.props.patient.antecedentesPersonalesNoPatologicos
+      &&
+      this.props.patient.antecedentesPersonalesPatologicos
+      &&
+      this.props.patient.antecedentesGinecologicos) {
+      console.log(this.props.patient.antecedentesFamiliares);
+      console.log(this.props.patient.antecedentesFamiliares.diabetesMellitus);
+      // const { patient } = this.props;
+      // const { antecedentesFamiliares, antecedentesGinecologicos, antecedentesPersonalesNoPatologicos, antecedentesPersonalesPatologicos } = patient;
+
       return (
         <div className="modal">
           <span className="close-modal" onClick={this.onClose}>
@@ -319,7 +339,7 @@ class Modal extends Component {
           <h1 className="header">Antecedentes Familiares</h1>
           <div className="form-group" style={{ width: "5%" }}>
             <label>
-              <div className="form-label">Diabetes Mellitus</div>
+              <div className="form-label">diabetes Mellitus</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.diabetesMellitus}
@@ -329,6 +349,25 @@ class Modal extends Component {
               />
             </label>
           </div>
+          {/* <div className="form-group" style={{ width: "5%" }}>
+            <label>
+              <div className="form-label">Diabetes Mellitus</div>
+              <select id="diabetesMellitus" className="form-input" value={this.state.diabetesMellitus} onChange={this.onChange}>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </label>
+          </div> */}
+
+          {/* <div className="form-group" style={{ width: "5%" }}>
+            <label>
+              <div className="form-label">Cancer</div>
+              <select id="cancer" className="form-input" value={this.state.cancer} onChange={this.onChange}>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </label>
+          </div> */}
           <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Cancer</div>
@@ -341,6 +380,7 @@ class Modal extends Component {
               />
             </label>
           </div>
+
           <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Hipertension Arterial</div>
@@ -720,7 +760,7 @@ class Modal extends Component {
             </label>
           </div>
           <h1 className="header">Antecedentes Familiares</h1>
-          <div className="form-group" style={{ width: "5%" }}>
+          {/* <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">diabetes Mellitus</div>
               <input
@@ -730,6 +770,15 @@ class Modal extends Component {
                 type="checkbox"
                 className="form-input"
               />
+            </label>
+          </div> */}
+          <div className="form-group" style={{ width: "5%" }}>
+            <label>
+              <div className="form-label">Diabetes Mellitus</div>
+              <select id="diabetesMellitus" className="form-input" value={this.state.diabetesMellitus} onChange={this.onChange}>
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
             </label>
           </div>
           <div className="form-group" style={{ width: "5%" }}>
@@ -1046,7 +1095,8 @@ class Modal extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  patients: state.patients
+  patients: state.patients,
+  patient: state.patients.patient, //lo agregué yo
 });
 
 export default connect(
