@@ -165,9 +165,9 @@ router.patch(
     patientFields.weight = req.body.weight;
     patientFields.sex = req.body.sex;
     patientFields.antecedentesFamiliares = antecedentesFamiliares;
-    patientFields.antecedentesPersonalesPatologicos=antecedentesPersonalesPatologicos;
+    patientFields.antecedentesPersonalesPatologicos = antecedentesPersonalesPatologicos;
     patientFields.antecedentesPersonalesNoPatologicos = antecedentesPersonalesNoPatologicos;
-    patientFields.antecedentesGinecologicos=antecedentesGinecologicos;
+    patientFields.antecedentesGinecologicos = antecedentesGinecologicos;
 
     Patient.findOneAndUpdate(
       { _id: req.body.id },

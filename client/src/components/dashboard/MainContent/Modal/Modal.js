@@ -349,25 +349,6 @@ class Modal extends Component {
               />
             </label>
           </div>
-          {/* <div className="form-group" style={{ width: "5%" }}>
-            <label>
-              <div className="form-label">Diabetes Mellitus</div>
-              <select id="diabetesMellitus" className="form-input" value={this.state.diabetesMellitus} onChange={this.onChange}>
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-              </select>
-            </label>
-          </div> */}
-
-          {/* <div className="form-group" style={{ width: "5%" }}>
-            <label>
-              <div className="form-label">Cancer</div>
-              <select id="cancer" className="form-input" value={this.state.cancer} onChange={this.onChange}>
-                <option value="0">No</option>
-                <option value="1">Yes</option>
-              </select>
-            </label>
-          </div> */}
           <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">Cancer</div>
@@ -760,7 +741,7 @@ class Modal extends Component {
             </label>
           </div>
           <h1 className="header">Antecedentes Familiares</h1>
-          {/* <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "5%" }}>
             <label>
               <div className="form-label">diabetes Mellitus</div>
               <input
@@ -770,15 +751,6 @@ class Modal extends Component {
                 type="checkbox"
                 className="form-input"
               />
-            </label>
-          </div> */}
-          <div className="form-group" style={{ width: "5%" }}>
-            <label>
-              <div className="form-label">Diabetes Mellitus</div>
-              <select id="diabetesMellitus" className="form-input" value={this.state.diabetesMellitus} onChange={this.onChange}>
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-              </select>
             </label>
           </div>
           <div className="form-group" style={{ width: "5%" }}>

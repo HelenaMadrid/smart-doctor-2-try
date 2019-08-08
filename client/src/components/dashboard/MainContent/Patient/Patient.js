@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPatient } from "../../../../actions/patientsActions";
-import JSONPretty from 'react-json-pretty';
+// import JSONPretty from 'react-json-pretty';
 
 
 import Spinner from "../../../common/Spinner";
@@ -175,13 +175,13 @@ class Patient extends Component {
     ) {
 
       const { patient } = this.props;
-      const { antecedentesFamiliares, antecedentesGinecologicos, antecedentesPersonalesNoPatologicos, antecedentesPersonalesPatologicos } = patient;
+      // const { antecedentesFamiliares, antecedentesGinecologicos, antecedentesPersonalesNoPatologicos, antecedentesPersonalesPatologicos } = patient;
       console.log(patient);
-      console.log(antecedentesFamiliares);
-      console.log(antecedentesFamiliares.cancer);
-      console.log(antecedentesGinecologicos.embarazo);
-      console.log(antecedentesPersonalesNoPatologicos.drogas);
-      console.log(antecedentesPersonalesPatologicos.hepatitis);
+      // console.log(antecedentesFamiliares);
+      // console.log(antecedentesFamiliares.cancer);
+      // console.log(antecedentesGinecologicos.embarazo);
+      // console.log(antecedentesPersonalesNoPatologicos.drogas);
+      console.log("litiasis renal personal "+patient.antecedentesPersonalesPatologicos.litiasisRenal);
       // console.log(historiaClinica);
       // console.log(patient.historiaClinica);
       // console.log(historiaClinica);
@@ -209,10 +209,10 @@ class Patient extends Component {
               patient.antecedentesPersonalesPatologicos.cirugias,
               patient.antecedentesPersonalesPatologicos.transfusiones,
               patient.antecedentesPersonalesPatologicos.hepatitis,
-              patient.antecedentesPersonalesPatologicos.diabetesMellitusPersonal,
-              patient.antecedentesPersonalesPatologicos.litiasisRenalPersonal,
-              patient.antecedentesPersonalesPatologicos.hipotiroidismoPersonal,
-              patient.antecedentesPersonalesPatologicos.hipertiroidismoPersonal,
+              patient.antecedentesPersonalesPatologicos.diabetesMellitus,
+              patient.antecedentesPersonalesPatologicos.litiasisRenal,
+              patient.antecedentesPersonalesPatologicos.hipotiroidismo,
+              patient.antecedentesPersonalesPatologicos.hipertiroidismo,
               patient.antecedentesPersonalesNoPatologicos.bebidasAlcoholicas,
               patient.antecedentesPersonalesNoPatologicos.drogas,
               patient.antecedentesPersonalesNoPatologicos.realizaEjercicio,
@@ -356,19 +356,19 @@ class Patient extends Component {
               </div>
               <div className="info-antecedentes">
                 <h2 className="header">diabetesMellitus</h2>
-                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.diabetesMellitusPersonal)}</div>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.diabetesMellitus)}</div>
               </div>
               <div className="info-antecedentes">
                 <h2 className="header">litiasisRenal</h2>
-                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.litiasisRenalPersonal)}</div>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.litiasisRenal)}</div>
               </div>
               <div className="info-antecedentes">
                 <h2 className="header">hipotiroidismo</h2>
-                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hipotiroidismoPersonal)}</div>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hipotiroidismo)}</div>
               </div>
               <div className="info-antecedentes">
                 <h2 className="header">hipertiroidismoPersonal</h2>
-                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hipertiroidismoPersonal)}</div>
+                <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hipertiroidismo)}</div>
               </div>
             </div>
             <div className="antecedentesPersonalesNoPatologicos">
@@ -418,11 +418,11 @@ class Patient extends Component {
               </div>
             </div>
 
-            <div className="form-label">{JSON.stringify(patient.antecedentesFamiliares)}</div>
+            {/* <div className="form-label">{JSON.stringify(patient.antecedentesFamiliares)}</div>
             <JSONPretty id="json-pretty" data={patient.antecedentesFamiliares}></JSONPretty>
             <JSONPretty id="json-pretty" data={patient.antecedentesPersonalesNoPatologicos}></JSONPretty>
             <JSONPretty id="json-pretty" data={patient.antecedentesPersonalesPatologicos}></JSONPretty>
-            <JSONPretty id="json-pretty" data={patient.antecedentesGinecologicos}></JSONPretty>
+            <JSONPretty id="json-pretty" data={patient.antecedentesGinecologicos}></JSONPretty> */}
 
 
 
