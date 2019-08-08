@@ -97,7 +97,7 @@ class Dashboard extends Component {
     if (patients.length > 0) {
       // At least one patient
       content = (
-        <>
+        <><div className="patients">
           <button className="main-btn" onClick={this.toggleModal}>
             Create another patient
           </button>
@@ -115,13 +115,14 @@ class Dashboard extends Component {
             />
           </div>
           <div className="patients-wrapper">{patientData}</div>
+        </div>
         </>
       );
     } else {
       // No patients
       content = (
         <>
-          <div className="patients">
+          <div>
             <div className="no-patients">
               <h1 className="header">You have no patients</h1>
               <button className="main-btn" onClick={this.toggleModal}>

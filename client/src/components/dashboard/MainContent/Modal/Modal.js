@@ -184,18 +184,22 @@ class Modal extends Component {
 
   deletePatient = id => {
     this.props.deletePatient(id);
-    this.onClose();
+    this.onCloseDelete();
   };
 
-  onClose = e => {
-    this.props.onClose && this.props.onClose(e);
+  onCloseDelete = e => {
+    this.resetState();
+    window.location = "/dashboard";
+  }
+
+  resetState(){
     this.setState({
       patientName: "",
       age: "",
       sex: "",
       height: "",
       weight: "",
-      diabetesMellitus: false,
+      diabatesMellitus: false,
       cancer: false,
       hipertensionArterial: false,
       litiasisRenal: false,
@@ -221,6 +225,11 @@ class Modal extends Component {
       embarazo: false,
       dificultadEmbarazo: false
     });
+  }
+
+  onClose = e => {
+    this.props.onClose && this.props.onClose(e);
+    this.resetState();
 
     if (window.location.pathname === "/dashboard") {
       console.log("no reload " + window.location);
@@ -271,6 +280,7 @@ class Modal extends Component {
           <p className="created-by">
             Created by {this.props.owner.name} ({this.props.owner.email})
           </p>
+          
           <div className="form-group" style={{ width: "30%" }}>
             <label>
               <div className="form-label" >Patient (required)</div>
