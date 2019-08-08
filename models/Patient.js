@@ -31,7 +31,7 @@ const PatientSchema = new Schema({
   historiaClinica: {
     antecedentesFamiliares:
     {
-      diabatesMellitus: {
+      diabetesMellitus: {
         type: Boolean
       },
       cancer: {

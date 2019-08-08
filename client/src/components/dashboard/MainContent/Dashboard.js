@@ -23,21 +23,21 @@ class Dashboard extends Component {
     this.setState({ modal: !this.state.modal, edit: false });
   };
 
-  toggleEditModal = (name, age, height, weight, id, owner, e) => {
-    e.stopPropagation();
+  // toggleEditModal = (name, age, height, weight, id, owner, e) => {
+  //   // e.stopPropagation();
 
-    this.setState({
-      modal: !this.state.modal,
-      edit: !this.state.edit,
-      name: name,
-      age: age,
-      height: height,
-      weight: weight,
-      id: id,
-      yesorno: false,
-      owner: owner
-    });
-  };
+  //   this.setState({
+  //     modal: !this.state.modal,
+  //     edit: !this.state.edit,
+  //     name: name,
+  //     age: age,
+  //     height: height,
+  //     weight: weight,
+  //     id: id,
+  //     yesorno: false,
+  //     owner: owner
+  //   });
+  // };
 
   render() {
     const { patients } = this.props.patients;
@@ -51,22 +51,6 @@ class Dashboard extends Component {
         onClick={() => this.props.history.push(`/patients/${patient._id}`)}
       >
         <div className="patient-name">{patient.name}</div>
-        <div
-          className="patient-info-button"
-          onClick={this.toggleEditModal.bind(
-            this,
-            patient.name,
-            patient.age,
-            patient.height,
-            patient.weight,
-            patient._id,
-            patient.yesorno,
-            patient.owner
-          )}
-        >
-          Edit patient
-        </div>
-        <div className="patient-info-button">Go to patient</div>
       </div>
     ));
 
@@ -82,13 +66,12 @@ class Dashboard extends Component {
               onClose={this.toggleModal}
               modal={this.state.modal}
               edit={this.state.edit}
-              name={this.state.name}
-              age={this.state.age}
-              height={this.state.height}
-              weight={this.state.weight}
-              id={this.state.id}
-              yesorno={this.state.yesorno}
-              owner={this.state.owner}
+              // name={this.state.name}
+              // age={this.state.age}
+              // height={this.state.height}
+              // weight={this.state.weight}
+              // id={this.state.id}
+              // owner={this.state.owner}
             />
           </div>
           <div className="patients-wrapper">{patientData}</div>
