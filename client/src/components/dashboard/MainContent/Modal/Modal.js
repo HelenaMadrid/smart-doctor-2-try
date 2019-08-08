@@ -178,11 +178,15 @@ class Modal extends Component {
 
   deletePatient = id => {
     this.props.deletePatient(id);
-    this.onClose();
+    this.onCloseDelete();
   };
 
-  onClose = e => {
-    this.props.onClose && this.props.onClose(e);
+  onCloseDelete = e => {
+    this.resetState();
+    window.location = "/dashboard";
+  }
+
+  resetState(){
     this.setState({
       patientName: "",
       age: "",
@@ -215,6 +219,11 @@ class Modal extends Component {
       embarazo: false,
       dificultadEmbarazo: false
     });
+  }
+  onClose = e => {
+    this.props.onClose && this.props.onClose(e);
+    
+    this.resetState();
 
     if (window.location.pathname === "/dashboard") {
       console.log("no reload " + window.location);
