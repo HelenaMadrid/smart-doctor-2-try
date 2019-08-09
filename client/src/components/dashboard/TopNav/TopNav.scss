@@ -35,7 +35,7 @@
     font-family: $code;
     font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 0.5rem;
+    letter-spacing: 2px;
     user-select: none;
     color: $black;
   }
@@ -53,7 +53,7 @@
   transition: all 0.25s ease 0s;
 
   .email {
-    font-size: 10px;
+    /*font-size: 10px;*/
     margin-right: 1rem;
     color: $darkGray;
     text-align: right;
