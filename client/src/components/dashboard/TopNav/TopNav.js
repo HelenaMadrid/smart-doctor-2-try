@@ -88,9 +88,6 @@ class TopNav extends Component {
                 <Link to="/dashboard">
                   <li>Home</li>
                 </Link>
-                <Link to="/tasks">
-                  <li>My Tasks</li>
-                </Link>
                 <Link to="/patients">
                   <li>My Patients</li>
                 </Link>
