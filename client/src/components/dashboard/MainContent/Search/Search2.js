@@ -2,27 +2,22 @@ import _ from 'lodash'
 // import faker from 'faker'
 import { connect } from "react-redux";
 import React, { Component } from 'react'
+// import { withRouter } from "react-router-dom";
 import { Search, Grid, Header, Segment } from 'semantic-ui-react'
 // import 'semantic-ui-css/semantic.min.css'
 
-
 const initialState = { isLoading: false, results: [], value: '' }
-
-// const source = _.times(5, () => ({
-//     title: faker.company.companyName(),
-//     description: faker.company.catchPhrase(),
-//     image: faker.internet.avatar(),
-//     price: faker.finance.amount(0, 100, 2, '$'),
-// }))
-
 let search = [];
 let searchData;
 
 class SearchExampleStandard extends Component {
     state = initialState
 
-
-    handleResultSelect = (e, { result }) => this.setState({ value: result.title })
+    handleResultSelect = (e, { result }) => {
+        this.setState({ value: result.title })
+        var id=result.key;
+        window.location = `/patients/${id}`;
+    }
 
     handleSearchChange = (e, { value }) => {
         this.setState({ isLoading: true, value })
@@ -52,25 +47,35 @@ class SearchExampleStandard extends Component {
                 <div className="patient-name">{patient.name}</div>
             </div>
         ));
+        console.log("patients length " + patients.length);
+        console.log("patientdata length " + patientData.length);
+        console.log("search lenght " + search.length);
+        if (patientData.length !== search.length) {
+            for (var x = 0; x < patientData.length; x++) {
+                if (patientData[x].props.children.props.children) {
+                    // console.log(patientData);
+                    // console.log("id " + patientData[x].key);
+                    // console.log("patient name " + patientData[x].props.children.props.children);
 
-        for (var x = 0; x < patientData.length; x++) {
-            if (patientData[x].props.children.props.children) {
-                // console.log(patientData);
-                console.log("id " + patientData[x].key);
-                console.log("patient name " + patientData[x].props.children.props.children);
+                    searchData = {
+                        key: patientData[x].key,
+                        title: patientData[x].props.children.props.children
+                    };
 
-                searchData = {
-                    key: patientData[x].key,
-                    name: patientData[x].props.children.props.children
-                };
+                    search.push(searchData);
 
-
-                search.push(searchData);
-
-                console.log(search);
+                    // console.log(search);
+                }
             }
         }
+
+        else {
+            console.log("patientdata length " + patientData.length);
+            console.log("search lenght " + search.length);
+            console.log("patientdata y search tienen el mismo lenght");
+        }
         const { isLoading, value, results } = this.state
+        console.log(search);
 
         return (
             <Grid>
@@ -86,7 +91,7 @@ class SearchExampleStandard extends Component {
                         {...this.props}
                     />
                 </Grid.Column>
-                <Grid.Column width={10}>
+                {/* <Grid.Column width={10}>
                     <Segment>
                         <Header>State</Header>
                         <pre style={{ overflowX: 'auto' }}>
@@ -97,7 +102,7 @@ class SearchExampleStandard extends Component {
                             {JSON.stringify(search, null, 2)}
                         </pre>
                     </Segment>
-                </Grid.Column>
+                </Grid.Column> */}
             </Grid>
         )
     }
