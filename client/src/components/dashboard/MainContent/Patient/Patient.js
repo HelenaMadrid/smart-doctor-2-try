@@ -306,114 +306,114 @@ class Patient extends Component {
               </div>
             </div>
             <div className="antecedentesFamiliares">
-              <h1>Antecedentes Familiares</h1>
+              <h1>Family background</h1>
               <div className="info-antecedentes">
-                <h2 className="header">diabetesMellitus</h2>
+                <h2 className="header">Diabetes mellitus</h2>
                 <div className="form-label">{String(patient.antecedentesFamiliares.diabetesMellitus)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">cancer</h2>
+                <h2 className="header">Cancer</h2>
                 <div className="form-label">{String(patient.antecedentesFamiliares.cancer)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">hipertensionArterial</h2>
+                <h2 className="header">Arterial hypertension</h2>
                 <div className="form-label">{String(patient.antecedentesFamiliares.hipertensionArterial)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">litiasisRenal</h2>
+                <h2 className="header">Nephrolithiasis</h2>
                 <div className="form-label">{String(patient.antecedentesFamiliares.litiasisRenal)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">hipotiroidismo</h2>
+                <h2 className="header">Hypothyroidism</h2>
                 <div className="form-label">{String(patient.antecedentesFamiliares.hipotiroidismo)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">hipertiroidismo</h2>
+                <h2 className="header">Hyperthyroidism</h2>
                 <div className="form-label">{String(patient.antecedentesFamiliares.hipertiroidismo)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">dislipidemia</h2>
+                <h2 className="header">Dyslipidemia</h2>
                 <div className="form-label">{String(patient.antecedentesFamiliares.dislipidemia)}</div>
               </div>
             </div>
             <div className="antecedentesPersonalesPatologicos">
-              <h1>Antecedentes Personales Patologicos</h1>
+              <h1>Pathological personal history</h1>
               <div className="info-antecedentes">
-                <h2 className="header">ingestaActualMedicamentos</h2>
+                <h2 className="header">Current intake medications</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.ingestaActualMedicamentos)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">cirugias</h2>
+                <h2 className="header">Surgeries</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.cirugias)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">transfusiones</h2>
+                <h2 className="header">Transfusions</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.transfusiones)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">hepatitis</h2>
+                <h2 className="header">Hepatitis</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hepatitis)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">diabetesMellitus</h2>
+                <h2 className="header">Diabetes mellitus</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.diabetesMellitus)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">litiasisRenal</h2>
+                <h2 className="header">Nephrolithiasis</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.litiasisRenal)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">hipotiroidismo</h2>
+                <h2 className="header">Hypothyroidism</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hipotiroidismo)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">hipertiroidismoPersonal</h2>
+                <h2 className="header">Hyperthyroidism</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesPatologicos.hipertiroidismo)}</div>
               </div>
             </div>
             <div className="antecedentesPersonalesNoPatologicos">
-              <h1>Antecedentes Personales No Patologicos</h1>
+              <h1>Non-pathological personal history</h1>
               <div className="info-antecedentes">
-                <h2 className="header">bebidasAlcoholicas</h2>
+                <h2 className="header">Alcoholic beverages</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesNoPatologicos.bebidasAlcoholicas)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">drogas</h2>
+                <h2 className="header">Drugs</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesNoPatologicos.drogas)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">realizaEjercicio</h2>
+                <h2 className="header">Perform exercise</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesNoPatologicos.realizaEjercicio)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">tabaquismo</h2>
+                <h2 className="header">Smoking</h2>
                 <div className="form-label">{String(patient.antecedentesPersonalesNoPatologicos.tabaquismo)}</div>
               </div>
             </div>
             <div className="antecedentesGinecologicos">
-              <h1>Antecedentes Ginecologicos</h1>
+              <h1>Gynecological Background</h1>
               <div className="info-antecedentes">
-                <h2 className="header">menarca</h2>
+                <h2 className="header">Menarche</h2>
                 <div className="form-label">{String(patient.antecedentesGinecologicos.menarca)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">gestaciones</h2>
+                <h2 className="header">Gestations</h2>
                 <div className="form-label">{String(patient.antecedentesGinecologicos.gestaciones)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">continuaMenstruando</h2>
+                <h2 className="header">Continue menstruating</h2>
                 <div className="form-label">{String(patient.antecedentesGinecologicos.continuaMenstruando)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">edadDejoMenstruar</h2>
+                <h2 className="header">Age Leave Menstruating</h2>
                 <div className="form-label">{String(patient.antecedentesGinecologicos.edadDejoMenstruar)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">embarazo</h2>
+                <h2 className="header">Pregnant</h2>
                 <div className="form-label">{String(patient.antecedentesGinecologicos.embarazo)}</div>
               </div>
               <div className="info-antecedentes">
-                <h2 className="header">dificultadEmbarazo</h2>
+                <h2 className="header">Difficulty pregnancy</h2>
                 <div className="form-label">{String(patient.antecedentesGinecologicos.dificultadEmbarazo)}</div>
               </div>
             </div>

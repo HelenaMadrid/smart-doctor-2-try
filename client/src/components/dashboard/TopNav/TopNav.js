@@ -62,7 +62,8 @@ class TopNav extends Component {
             menu
           </i>
           <h1 className="brand-header">
-            Team<span className="brand-header-sub">s</span>
+            SmartDoctor
+            {/* <span className="brand-header-sub">s</span> */}
           </h1>
         </div>
         <ul className="right-top">

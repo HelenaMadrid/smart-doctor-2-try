@@ -186,18 +186,22 @@ class Modal extends Component {
 
   deletePatient = id => {
     this.props.deletePatient(id);
-    this.onClose();
+    this.onCloseDelete();
   };
 
-  onClose = e => {
-    this.props.onClose && this.props.onClose(e);
+  onCloseDelete = e => {
+    this.resetState();
+    window.location = "/dashboard";
+  }
+
+  resetState(){
     this.setState({
       patientName: "",
       age: "",
       sex: "",
       height: "",
       weight: "",
-      diabetesMellitus: false,
+      diabatesMellitus: false,
       cancer: false,
       hipertensionArterial: false,
       litiasisRenal: false,
@@ -223,6 +227,11 @@ class Modal extends Component {
       embarazo: false,
       dificultadEmbarazo: false
     });
+  }
+
+  onClose = e => {
+    this.props.onClose && this.props.onClose(e);
+    this.resetState();
 
     if (window.location.pathname === "/dashboard") {
       console.log("no reload " + window.location);
@@ -273,6 +282,7 @@ class Modal extends Component {
           <p className="created-by">
             Created by {this.props.owner.name} ({this.props.owner.email})
           </p>
+          
           <div className="form-group" style={{ width: "30%" }}>
             <label>
               <div className="form-label" >Patient (required)</div>
@@ -281,67 +291,67 @@ class Modal extends Component {
                 value={this.state.patientName}
                 id="patientName"
                 type="text"
-                placeholder="My patient name"
+                placeholder="Patient name"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label" >age</div>
+              <div className="form-label" >Age</div>
               <input
                 onChange={this.onChange}
                 value={this.state.age}
                 id="age"
                 type="number"
-                placeholder="patient age"
+                placeholder="Patient age"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">sex</div>
+              <div className="form-label">Sex</div>
               <input
                 onChange={this.onChange}
                 value={this.state.sex}
                 id="sex"
                 type="text"
-                placeholder="patient sex"
+                placeholder="Patient sex"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">height</div>
+              <div className="form-label">Height</div>
               <input
                 onChange={this.onChange}
                 value={this.state.height}
                 id="height"
                 type="number"
-                placeholder="patient height"
+                placeholder="Patient height"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">weight</div>
+              <div className="form-label">Weight</div>
               <input
                 onChange={this.onChange}
                 value={this.state.weight}
                 id="weight"
                 type="number"
-                placeholder="patient weight"
+                placeholder="Patient weight"
                 className="form-input"
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Familiares</h1>
-          <div className="form-group" style={{ width: "5%" }}>
+          <h1 className="header">Family background</h1>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">diabetes Mellitus</div>
+              <div className="form-label">Diabetes mellitus</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.diabetesMellitus}
@@ -351,7 +361,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
               <div className="form-label">Cancer</div>
               <input
@@ -364,9 +374,9 @@ class Modal extends Component {
             </label>
           </div>
 
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Hipertension Arterial</div>
+              <div className="form-label">Arterial hypertension</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipertensionArterial}
@@ -376,9 +386,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Litiasis Renal</div>
+              <div className="form-label">Nephrolithiasis</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.litiasisRenal}
@@ -388,9 +398,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Hipo- tiroidismo</div>
+              <div className="form-label">Hypothyroidism</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipotiroidismo}
@@ -400,9 +410,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Hiper- tiroidismo</div>
+              <div className="form-label">Hyperthyroidism</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipertiroidismo}
@@ -412,9 +422,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Dislipidemia</div>
+              <div className="form-label">Dyslipidemia</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.dislipidemia}
@@ -424,47 +434,47 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Personales Patológicos</h1>
-          <div className="form-group" style={{ width: "20%" }}>
+          <h1 className="header">Pathological personal history</h1>
+          <div className="form-group" style={{ width: "50%" }}>
             <label>
-              <div className="form-label">Ingesta Actual Medicamentos</div>
+              <div className="form-label">Current intake medications</div>
               <input
                 onChange={this.onChange}
                 value={this.state.ingestaActualMedicamentos}
                 id="ingestaActualMedicamentos"
                 type="text"
-                placeholder="ingesta Actual de Medicamentos"
+                placeholder="Medications"
                 className="form-input"
               />
             </label>
           </div>
           <div className="form-group" style={{ width: "20%" }}>
             <label>
-              <div className="form-label">Cirugías</div>
+              <div className="form-label">Surgeries</div>
               <input
                 onChange={this.onChange}
                 value={this.state.cirugias}
                 id="cirugias"
                 type="text"
-                placeholder="cirugias"
+                placeholder="Surgeries"
                 className="form-input"
               />
             </label>
           </div>
           <div className="form-group" style={{ width: "20%" }}>
             <label>
-              <div className="form-label">Transfusiones</div>
+              <div className="form-label">Transfusions</div>
               <input
                 onChange={this.onChange}
                 value={this.state.transfusiones}
                 id="transfusiones"
                 type="text"
-                placeholder="transfusiones"
+                placeholder="Transfusions"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "20%", marginTop: "40px"}}>
             <label>
               <div className="form-label">Hepatitis</div>
               <input
@@ -476,9 +486,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">diabetes Mellitus</div>
+              <div className="form-label">Diabetes mellitus</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.diabetesMellitusPersonal}
@@ -488,9 +498,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">Litiasis Renal</div>
+              <div className="form-label">Nephrolithiasis</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.litiasisRenalPersonal}
@@ -500,9 +510,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">Hipo- tiroidismo</div>
+              <div className="form-label">Hypothyroidism</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipotiroidismoPersonal}
@@ -512,9 +522,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">Hiper- tiroidismo</div>
+              <div className="form-label">Hyperthyroidism</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipertiroidismoPersonal}
@@ -524,10 +534,10 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Personales Patológicos</h1>
-          <div className="form-group" style={{ width: "7%" }}>
+          <h1 className="header">Non-pathological personal history</h1>
+          <div className="form-group" style={{ width: "23%" }}>
             <label>
-              <div className="form-label">Bebidas Alcoholicas</div>
+              <div className="form-label">Alcoholic beverages</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.bebidasAlcoholicas}
@@ -537,9 +547,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "23%" }}>
             <label>
-              <div className="form-label">Drogas</div>
+              <div className="form-label">Drugs</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.drogas}
@@ -549,9 +559,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "7%" }}>
+          <div className="form-group" style={{ width: "23%" }}>
             <label>
-              <div className="form-label">Realiza Ejercicio</div>
+              <div className="form-label">Perform exercise</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.realizaEjercicio}
@@ -561,9 +571,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "7%" }}>
+          <div className="form-group" style={{ width: "23%" }}>
             <label>
-              <div className="form-label">Tabaquismo</div>
+              <div className="form-label">Smoking</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.tabaquismo}
@@ -573,36 +583,36 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Ginecológicos</h1>
-          <div className="form-group" style={{ width: "5%" }}>
+          <h1 className="header">Gynecological Background</h1>
+          <div className="form-group" style={{ width: "20%" }}>
             <label>
-              <div className="form-label">Menarca</div>
+              <div className="form-label">Menarche</div>
               <input
                 onChange={this.onChange}
                 value={this.state.menarca}
                 id="menarca"
                 type="number"
-                placeholder="menarca"
+                placeholder="Menarches"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "20%" }}>
             <label>
-              <div className="form-label">Gestaciones</div>
+              <div className="form-label">Gestations</div>
               <input
                 onChange={this.onChange}
                 value={this.state.gestaciones}
                 id="gestaciones"
                 type="number"
-                placeholder="gestaciones"
+                placeholder="Number of Gestations"
                 className="form-input"
               />
             </label>
           </div>
           <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">Continua Menstruando</div>
+              <div className="form-label">Continue menstruating</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.continuaMenstruando}
@@ -614,20 +624,20 @@ class Modal extends Component {
           </div>
           <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">Edad Dejó Menstruar</div>
+              <div className="form-label">Age Leave Menstruating</div>
               <input
                 onChange={this.onChange}
                 value={this.state.edadDejoMenstruar}
                 id="edadDejoMenstruar"
                 type="number"
-                placeholder="edadDejoMenstruar"
+                placeholder="Age"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">Embarazo</div>
+              <div className="form-label">Pregnant</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.embarazo}
@@ -639,7 +649,7 @@ class Modal extends Component {
           </div>
           <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">Dificultad Embarazo</div>
+              <div className="form-label">Difficulty pregnancy</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.dificultadEmbarazo}
@@ -690,62 +700,62 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label" >age</div>
+              <div className="form-label" >Age</div>
               <input
                 onChange={this.onChange}
                 value={this.state.age}
                 id="age"
                 type="number"
-                placeholder="patient age"
+                placeholder="Patient age"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">sex</div>
+              <div className="form-label">Sex</div>
               <input
                 onChange={this.onChange}
                 value={this.state.sex}
                 id="sex"
                 type="text"
-                placeholder="patient sex"
+                placeholder="Patient sex"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">height</div>
+              <div className="form-label">Height</div>
               <input
                 onChange={this.onChange}
                 value={this.state.height}
                 id="height"
                 type="number"
-                placeholder="patient height"
+                placeholder="Patient height"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">weight</div>
+              <div className="form-label">Weight</div>
               <input
                 onChange={this.onChange}
                 value={this.state.weight}
                 id="weight"
                 type="number"
-                placeholder="patient weight"
+                placeholder="Patient weight"
                 className="form-input"
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Familiares</h1>
-          <div className="form-group" style={{ width: "5%" }}>
+          <h1 className="header">Family background</h1>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">diabetes Mellitus</div>
+              <div className="form-label">Diabetes mellitus</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.diabetesMellitus}
@@ -755,7 +765,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
               <div className="form-label">Cancer</div>
               <input
@@ -767,9 +777,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Hipertension Arterial</div>
+              <div className="form-label">Arterial hypertension</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipertensionArterial}
@@ -779,9 +789,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Litiasis Renal</div>
+              <div className="form-label">Nephrolithiasis</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.litiasisRenal}
@@ -791,9 +801,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Hipo- tiroidismo</div>
+              <div className="form-label">Hypothyroidism</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipotiroidismo}
@@ -803,9 +813,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Hiper- tiroidismo</div>
+              <div className="form-label">Hyperthyroidism</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipertiroidismo}
@@ -815,9 +825,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
-              <div className="form-label">Dislipidemia</div>
+              <div className="form-label">Dyslipidemia</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.dislipidemia}
@@ -827,47 +837,47 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Personales Patológicos</h1>
-          <div className="form-group" style={{ width: "20%" }}>
+          <h1 className="header">Pathological personal history</h1>
+          <div className="form-group" style={{ width: "50%" }}>
             <label>
-              <div className="form-label">Ingesta Actual Medicamentos</div>
+              <div className="form-label">Current intake medications</div>
               <input
                 onChange={this.onChange}
                 value={this.state.ingestaActualMedicamentos}
                 id="ingestaActualMedicamentos"
                 type="text"
-                placeholder="ingesta Actual de Medicamentos"
+                placeholder="Medications"
                 className="form-input"
               />
             </label>
           </div>
           <div className="form-group" style={{ width: "20%" }}>
             <label>
-              <div className="form-label">Cirugías</div>
+              <div className="form-label">Surgeries</div>
               <input
                 onChange={this.onChange}
                 value={this.state.cirugias}
                 id="cirugias"
                 type="text"
-                placeholder="cirugias"
+                placeholder="Surgeries"
                 className="form-input"
               />
             </label>
           </div>
           <div className="form-group" style={{ width: "20%" }}>
             <label>
-              <div className="form-label">Transfusiones</div>
+              <div className="form-label">Transfusions</div>
               <input
                 onChange={this.onChange}
                 value={this.state.transfusiones}
                 id="transfusiones"
                 type="text"
-                placeholder="transfusiones"
+                placeholder="Transfusions"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "20%", marginTop: "40px"}}>
             <label>
               <div className="form-label">Hepatitis</div>
               <input
@@ -879,9 +889,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">diabetes Mellitus</div>
+              <div className="form-label">Diabetes mellitus</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.diabetesMellitusPersonal}
@@ -891,9 +901,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">Litiasis Renal</div>
+              <div className="form-label">Nephrolithiasis</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.litiasisRenalPersonal}
@@ -903,9 +913,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">Hipo- tiroidismo</div>
+              <div className="form-label">Hypothyroidism</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipotiroidismoPersonal}
@@ -915,9 +925,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
-              <div className="form-label">Hiper- tiroidismo</div>
+              <div className="form-label">Hyperthyroidism</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.hipertiroidismoPersonal}
@@ -927,10 +937,10 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Personales Patológicos</h1>
-          <div className="form-group" style={{ width: "7%" }}>
+          <h1 className="header">Non-pathological personal history</h1>
+          <div className="form-group" style={{ width: "23%" }}>
             <label>
-              <div className="form-label">Bebidas Alcoholicas</div>
+              <div className="form-label">Alcoholic beverages</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.bebidasAlcoholicas}
@@ -940,9 +950,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "23%" }}>
             <label>
-              <div className="form-label">Drogas</div>
+              <div className="form-label">Drugs</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.drogas}
@@ -952,9 +962,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "7%" }}>
+          <div className="form-group" style={{ width: "23%" }}>
             <label>
-              <div className="form-label">Realiza Ejercicio</div>
+              <div className="form-label">Perform exercise</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.realizaEjercicio}
@@ -964,9 +974,9 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "7%" }}>
+          <div className="form-group" style={{ width: "23%" }}>
             <label>
-              <div className="form-label">Tabaquismo</div>
+              <div className="form-label">Smoking</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.tabaquismo}
@@ -976,36 +986,36 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <h1 className="header">Antecedentes Ginecológicos</h1>
-          <div className="form-group" style={{ width: "5%" }}>
+          <h1 className="header">Gynecological Background</h1>
+          <div className="form-group" style={{ width: "20%" }}>
             <label>
-              <div className="form-label">Menarca</div>
+              <div className="form-label">Menarche</div>
               <input
                 onChange={this.onChange}
                 value={this.state.menarca}
                 id="menarca"
                 type="number"
-                placeholder="menarca"
+                placeholder="Menarche"
                 className="form-input"
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "20%" }}>
             <label>
-              <div className="form-label">Gestaciones</div>
+              <div className="form-label">Gestations</div>
               <input
                 onChange={this.onChange}
                 value={this.state.gestaciones}
                 id="gestaciones"
                 type="number"
-                placeholder="gestaciones"
+                placeholder="Number of Gestations"
                 className="form-input"
               />
             </label>
           </div>
           <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">Continua Menstruando</div>
+              <div className="form-label">Continue menstruating</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.continuaMenstruando}
@@ -1017,20 +1027,20 @@ class Modal extends Component {
           </div>
           <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">Edad Dejó Menstruar</div>
+              <div className="form-label">Age Leave Menstruating</div>
               <input
                 onChange={this.onChange}
                 value={this.state.edadDejoMenstruar}
                 id="edadDejoMenstruar"
                 type="number"
-                placeholder="edadDejoMenstruar"
+                placeholder="Age"
                 className="form-input"
               />
             </label>
           </div>
           <div className="form-group" style={{ width: "5%" }}>
             <label>
-              <div className="form-label">Embarazo</div>
+              <div className="form-label">Pregnant</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.embarazo}
@@ -1042,7 +1052,7 @@ class Modal extends Component {
           </div>
           <div className="form-group" style={{ width: "15%" }}>
             <label>
-              <div className="form-label">Dificultad Embarazo</div>
+              <div className="form-label">Difficulty pregnancy</div>
               <input
                 onChange={this.onChange}
                 checked={this.state.dificultadEmbarazo}

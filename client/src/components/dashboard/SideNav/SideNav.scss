@@ -90,8 +90,10 @@
 }
 
 .patient-listings {
-  height: 305px;
+  height:70vh;
   overflow: scroll;
+  scrollbar-color: blue transparent;
+  scrollbar-width: thin;
 
   &::-webkit-scrollbar {
     -webkit-appearance: none;

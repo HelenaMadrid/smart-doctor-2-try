@@ -107,6 +107,7 @@ class Dashboard extends Component {
     if (patients.length > 0 && patientData[patientData.length - 1].props.children.props.children) {
       // At least one patient
       content = (
+<<<<<<< HEAD
         <>
 
           {/* <ReactSearchBox
@@ -118,6 +119,9 @@ class Dashboard extends Component {
           {/* <SearchBar></SearchBar> */}
           <SearchExampleStandard></SearchExampleStandard>
 
+=======
+        <><div className="patients">
+>>>>>>> 53793b8415de8e7c5c5268f26f9f3247c42822e0
           <button className="main-btn" onClick={this.toggleModal}>
             Create another patient
           </button>
@@ -135,14 +139,18 @@ class Dashboard extends Component {
             />
           </div>
           <div className="patients-wrapper">{patientData}</div>
+<<<<<<< HEAD
 
+=======
+        </div>
+>>>>>>> 53793b8415de8e7c5c5268f26f9f3247c42822e0
         </>
       );
     } else {
       // No patients
       content = (
         <>
-          <div className="patients">
+          <div>
             <div className="no-patients">
               <h1 className="header">You have no patients</h1>
               <button className="main-btn" onClick={this.toggleModal}>
