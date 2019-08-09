@@ -24,6 +24,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react-json-pretty": "^2.1.0",
+    "react-search": "^2.1.0",
     "validator": "^10.9.0"
   },
   "devDependencies": {

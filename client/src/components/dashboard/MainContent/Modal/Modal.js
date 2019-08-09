@@ -94,10 +94,12 @@ class Modal extends Component {
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
     // const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    
     let value = e.target.type;
     if (value === 'checkbox') {
       this.setState({ [e.target.id]: e.target.checked });
       // console.log("value: "+ value + " e.target.checked: " + e.target.checked + " e.target.value: " + e.target.value);
+      console.log(e.target.value);
       return;
     }
 

@@ -5,6 +5,10 @@ import "./Dashboard.scss";
 import { connect } from "react-redux";
 
 import Modal from "./Modal/Modal";
+// import SearchBar from "./Search/Search"
+import SearchExampleStandard from "./Search/Search2"
+// import { PATIENT_LOADING } from "../../../actions/types";
+
 
 class Dashboard extends Component {
   state = {
@@ -56,6 +60,7 @@ class Dashboard extends Component {
       }
     },
     id: "",
+    // search: "",
     owner: {}
   };
 
@@ -63,26 +68,12 @@ class Dashboard extends Component {
     this.setState({ modal: !this.state.modal, edit: false });
   };
 
-  // toggleEditModal = (name, age, height, weight, id, owner, e) => {
-  //   // e.stopPropagation();
-
-  //   this.setState({
-  //     modal: !this.state.modal,
-  //     edit: !this.state.edit,
-  //     name: name,
-  //     age: age,
-  //     height: height,
-  //     weight: weight,
-  //     id: id,
-  //     yesorno: false,
-  //     owner: owner
-  //   });
-  // };
-
   render() {
     const { patients } = this.props.patients;
 
     let content;
+    // let search = [];
+    // let searchData;
 
     let patientData = patients.sort().map(patient => (
       <div
@@ -94,10 +85,39 @@ class Dashboard extends Component {
       </div>
     ));
 
-    if (patients.length > 0) {
+    // for (var x = 0; x < patientData.length; x++) {
+    //   if (patientData[x].props.children.props.children) {
+    //     // console.log(patientData);
+    //     console.log("id " + patientData[x].key);
+    //     console.log("patient name " + patientData[x].props.children.props.children);
+
+    //     searchData = {
+    //       key: patientData[x].key,
+    //       name: patientData[x].props.children.props.children
+    //     };
+
+
+    //     search.push(searchData);
+
+    //     console.log(search);
+    //   }
+    // }
+
+
+    if (patients.length > 0 && patientData[patientData.length - 1].props.children.props.children) {
       // At least one patient
       content = (
         <>
+
+          {/* <ReactSearchBox
+            placeholder="Placeholder"
+            value={this.state.search}
+            data={search}
+            onChange={record => console.log(record)}
+          /> */}
+          {/* <SearchBar></SearchBar> */}
+          <SearchExampleStandard></SearchExampleStandard>
+
           <button className="main-btn" onClick={this.toggleModal}>
             Create another patient
           </button>
@@ -115,6 +135,7 @@ class Dashboard extends Component {
             />
           </div>
           <div className="patients-wrapper">{patientData}</div>
+
         </>
       );
     } else {
@@ -137,7 +158,9 @@ class Dashboard extends Component {
     }
 
     return (
+
       <div className="main-content">
+
         <h1 className="header">Your patients</h1>
         {content}
       </div>
