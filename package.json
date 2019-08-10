@@ -8,11 +8,10 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "concurrently \"npm run server\" \"npm run client\"",
     "full-install": "npm install && npm install --prefix client",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "MIT",
