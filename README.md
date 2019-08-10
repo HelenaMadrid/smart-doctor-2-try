@@ -1,6 +1,17 @@
 # SMART DOCTOR
 
-An app where doctors can create, view and edit patients health information.
+## Problem
+
+Medicine is a complex field where one wrong decision can lead to patients’ injuries or even death. Doctors take care of many patients and are expected to have all the pertinent information and never make mistakes. That being said, keeping track of all the patients’ information is practically impossible, and even when they do, it gets lost or is too difficult to maintain.
+
+## Solution
+
+Smart Doctor allows doctors to access, view, create and edit patients’ health records anywhere, anytime. 
+
+Advantages:
+ - Less mistakes due the lack of a good health records.
+ - Improve their practice by making better decisions with all the pertinent and current information.
+ - Practical and easy-to-use, that allows to keep better control of your patients from any device.
 
 ## Stack (MERN & Redux)
 
