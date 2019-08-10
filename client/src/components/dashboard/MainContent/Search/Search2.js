@@ -15,11 +15,13 @@ let searchData;
 class SearchExampleStandard extends Component {
     state = initialState
 
-    handleResultSelect = (e, { result }) => {
-        this.setState({ value: result.title })
-        var id=result.key; 
-        window.location = `/patients/${id}`;
-    }
+    // handleResultSelect = (e, { result }) => {
+    //     this.setState({ value: result.title })
+    //     var id=result.key; 
+    //     console.log(this.props.history);
+
+    //     // window.location = `/patients/${id}`;
+    // }
 
     handleSearchChange = (e, { value }) => {
         this.setState({ isLoading: true, value })
@@ -83,7 +85,7 @@ class SearchExampleStandard extends Component {
                 <Grid.Column width={6}>
                     <Search
                         loading={isLoading}
-                        onResultSelect={this.handleResultSelect}
+                        // onResultSelect={this.handleResultSelect}
                         onSearchChange={_.debounce(this.handleSearchChange, 500, {
                             leading: true,
                         })}
