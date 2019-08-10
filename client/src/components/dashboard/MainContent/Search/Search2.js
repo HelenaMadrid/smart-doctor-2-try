@@ -55,12 +55,12 @@ class SearchExampleStandard extends Component {
         console.log("patientdata length " + patientData.length);
         console.log("search lenght " + search.length);
         if (patientData.length !== search.length) {
+            search = [];
             for (var x = 0; x < patientData.length; x++) {
                 if (patientData[x].props.children.props.children) {
                     // console.log(patientData);
                     // console.log("id " + patientData[x].key);
                     // console.log("patient name " + patientData[x].props.children.props.children);
-                    search = [];
                     searchData = {
                         key: patientData[x].key,
                         title: patientData[x].props.children.props.children
