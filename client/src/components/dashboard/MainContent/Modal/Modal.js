@@ -335,7 +335,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "17%" }}>
+          <div className="form-group" style={{ width: "17%", marginTop: "20px" }}>
             <label>
               <div className="form-label">Weight</div>
               <input
@@ -349,7 +349,7 @@ class Modal extends Component {
             </label>
           </div>
           <h1 className="header">Family background</h1>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Diabetes mellitus</div>
               <input
@@ -361,7 +361,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Cancer</div>
               <input
@@ -374,7 +374,7 @@ class Modal extends Component {
             </label>
           </div>
 
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Arterial hypertension</div>
               <input
@@ -386,7 +386,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Nephrolithiasis</div>
               <input
@@ -398,7 +398,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Hypothyroidism</div>
               <input
@@ -410,7 +410,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Hyperthyroidism</div>
               <input
@@ -422,7 +422,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Dyslipidemia</div>
               <input
@@ -635,7 +635,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "15%" }}>
+          <div className="form-group" style={{ width: "17%" }}>
             <label>
               <div className="form-label">Pregnant</div>
               <input
@@ -647,7 +647,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "15%" }}>
+          <div className="form-group" style={{ width: "15%", marginTop: "20px" }}>
             <label>
               <div className="form-label">Difficulty pregnancy</div>
               <input
@@ -739,7 +739,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "17%" }}>
+          <div className="form-group" style={{ width: "17%" , marginTop: "20px"}}>
             <label>
               <div className="form-label">Weight</div>
               <input
@@ -753,7 +753,7 @@ class Modal extends Component {
             </label>
           </div>
           <h1 className="header">Family background</h1>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Diabetes mellitus</div>
               <input
@@ -765,7 +765,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Cancer</div>
               <input
@@ -777,7 +777,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Arterial hypertension</div>
               <input
@@ -789,7 +789,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Nephrolithiasis</div>
               <input
@@ -801,7 +801,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Hypothyroidism</div>
               <input
@@ -813,7 +813,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Hyperthyroidism</div>
               <input
@@ -825,7 +825,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "10%" }}>
+          <div className="form-group" style={{ width: "13%" }}>
             <label>
               <div className="form-label">Dyslipidemia</div>
               <input
@@ -1038,7 +1038,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "5%" }}>
+          <div className="form-group" style={{ width: "10%" }}>
             <label>
               <div className="form-label">Pregnant</div>
               <input
@@ -1050,7 +1050,7 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-group" style={{ width: "15%" }}>
+          <div className="form-group" style={{ width: "15%", marginTop: "20px"  }}>
             <label>
               <div className="form-label">Difficulty pregnancy</div>
               <input

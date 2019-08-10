@@ -47,10 +47,34 @@
   width: 100%;
   padding-right: 2rem;
   margin-bottom: 0.75rem;
-  font-size: 14px;
+  font-size: 10px;
   color: $darkGray;
   font-family: $code;
   display: inline-block;
+}
+
+@media (min-width: 1281px) {
+  
+.form-label {
+  font-size: 12px;
+}
+  
+}
+
+@media (min-width: 1440px) {
+  
+.form-label {
+  font-size: 13px;
+}
+  
+}
+
+@media (min-width: 1680px) {
+  
+.form-label {
+  font-size: 14px;
+}
+  
 }
 
 .created-by {
