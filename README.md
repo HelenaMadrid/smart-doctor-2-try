@@ -23,10 +23,6 @@ This project uses the following technologies
 - [Node.js](https://nodejs.org/en/) for server
 - [SASS](https://sass-lang.com/) as CSS preprocessor
 
-## Current Status
-
-![Current Status](http://g.recordit.co/2s4rtcysD7.gif)
-
 ### Progress
 
 #### General
@@ -44,7 +40,7 @@ This project uses the following technologies
 #### Possible Improvements
 - [ ] Add appointment, consultation and prescription information to patients.
 - [ ] Add graphs and calendar to visualise information on patients page.
-- [ ] Updates to project information not reflected immediately in Project component view
+
 
 ## Quick Start
 
