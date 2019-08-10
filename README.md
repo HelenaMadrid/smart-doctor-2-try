@@ -1,6 +1,6 @@
-# Teams
+# SMART DOCTOR
 
-Project management platform for teams, inspired by [Asana](https://asana.com/) and built using a full JavaScript stack
+An app where doctors can create, view and edit patients health information.
 
 ## Stack (MERN & Redux)
 
@@ -23,27 +23,16 @@ This project uses the following technologies
 - [x] Authentication
 - [x] Dashboard view
 
-#### Projects
+#### Patients
 
-- [x] Create and fetch team projects
-- [x] Edit team projects
-- [x] Delete team projects (only project owner should be able to delete)
-- [x] Access shared projects
+- [x] Search by patient name
+- [x] Create patient
+- [x] Edit team patient
+- [x] Delete patient
 
-#### Tasks
-
-- [x] Create, assign, view and set deadlines for team tasks
-- [ ] Edit all tasks
-- [ ] Complete tasks
-
-#### Containerization & Deployment
-
-- [ ] Docker
-- [ ] Deployment (AWS, Heroku, or Digital Ocean)
-
-#### Known Bugs
-
-- [ ] Logout sometimes doesn't execute properly
+#### Possible Improvements
+- [ ] Add appointment, consultation and prescription information to patients.
+- [ ] Add graphs and calendar to visualise information on patients page.
 - [ ] Updates to project information not reflected immediately in Project component view
 
 ## Quick Start
@@ -59,4 +48,3 @@ npm run dev
 
 // Server runs on http://localhost:5000 (set in server.js) and client on http://localhost:3000 (default for CRA)
 ```
-# smart-doctor-2-try
