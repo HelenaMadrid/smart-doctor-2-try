@@ -7,7 +7,7 @@
     "client-install": "npm install --prefix client",
     "start": "node server.js",
     "client": "cd client && npm run start",
-    "build": "cd client && npm run build",
+    "build": "concurrently \"npm run server\" \"npm run client\"",
     "full-install": "npm install && npm install --prefix client",
     "install": "cd client && npm install"
   },
