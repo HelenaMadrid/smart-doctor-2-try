@@ -10,8 +10,6 @@
     "install": "cd client && npm install",
     "client": "cd client && npm run start",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-
   },
   "author": "",
   "license": "MIT",
