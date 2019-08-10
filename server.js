@@ -8,7 +8,7 @@ const users = require("./routes/api/users");
 const patients = require("./routes/api/patients");
 
 const app = express();
-app.use(express.static('client/build'));
+app.use(express.static(path.join(__dirname, "/client/build")));
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
