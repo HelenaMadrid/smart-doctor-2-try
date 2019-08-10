@@ -7,11 +7,11 @@ Medicine is a complex field where one wrong decision can lead to patients’ inj
 ## Solution
 
 Smart Doctor allows doctors to access, view, create and edit patients’ health records anywhere, anytime. 
+
 Advantages:
  - Less mistakes due the lack of a good health records.
  - Improve their practice by making better decisions with all the pertinent and current information.
  - Practical and easy-to-use, that allows to keep better control of your patients from any device.
-
 
 ## Stack (MERN & Redux)
 
