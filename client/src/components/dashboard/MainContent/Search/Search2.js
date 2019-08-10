@@ -60,6 +60,7 @@ class SearchExampleStandard extends Component {
                     // console.log(patientData);
                     // console.log("id " + patientData[x].key);
                     // console.log("patient name " + patientData[x].props.children.props.children);
+                    search = [];
                     searchData = {
                         key: patientData[x].key,
                         title: patientData[x].props.children.props.children
