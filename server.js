@@ -2,23 +2,22 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const path =  require('path');
 
 
 const users = require("./routes/api/users");
 const patients = require("./routes/api/patients");
 
 const app = express();
-if (process.env.NODE_ENV === 'production') {
-  // Exprees will serve up production assets
-  app.use(express.static('client/public'));
+// if (process.env.NODE_ENV === 'production') {
+//   // Exprees will serve up production assets
+//   app.use(express.static('client/public'));
 
-  // Express serve up index.html file if it doesn't recognize route
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
-  });
-}
+//   // Express serve up index.html file if it doesn't recognize route
+//   const path = require('path');
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
+//   });
+// }
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -26,6 +25,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+app.use(express.static('client/public'));
 
 // DB Config
 const db = require("./config/keys").mongoURI;
