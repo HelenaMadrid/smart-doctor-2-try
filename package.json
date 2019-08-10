@@ -7,11 +7,10 @@
     "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
+    "client": "cd client && npm run start",
     "build": "concurrently \"npm run server\" \"npm run client\"",
     "full-install": "npm install && npm install --prefix client",
     "install": "cd client && npm install",
-    "heroku-postbuild": "cd client && npm start"
   },
   "author": "",
   "license": "MIT",
