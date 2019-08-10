@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-
+const path = require('path');
 
 const users = require("./routes/api/users");
 const patients = require("./routes/api/patients");
@@ -43,11 +43,12 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use("/api/patients", patients);
+
 //   // Express serve up index.html file if it doesn't recognize route
-//   const path = require('path');
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-//   });
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 
 const port = process.env.PORT || 5000;
 
