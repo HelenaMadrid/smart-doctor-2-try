@@ -68,6 +68,13 @@ class Dashboard extends Component {
     this.setState({ modal: !this.state.modal, edit: false });
   };
 
+  handleResultSelect = (e, { result }) => {
+    this.setState({ value: result.title })
+    var id = result.key;
+    console.log(this.props.history);
+    this.props.history.push(`/patients/${id}`);
+  }
+
   render() {
     const { patients } = this.props.patients;
 
@@ -87,7 +94,9 @@ class Dashboard extends Component {
       // At least one patient
       content = (
         <>
-          <SearchExampleStandard></SearchExampleStandard>
+          <SearchExampleStandard
+            onResultSelect={this.handleResultSelect}>
+          </SearchExampleStandard>
 
           <button className="main-btn" onClick={this.toggleModal}>
             Create another patient
