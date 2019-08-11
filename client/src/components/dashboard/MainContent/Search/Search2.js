@@ -1,12 +1,8 @@
 import _ from 'lodash'
-// import faker from 'faker'
 import { connect } from "react-redux";
 import React, { Component } from 'react'
-// import { withRouter } from "react-router-dom";
 import { Search, Grid } from 'semantic-ui-react'
-// import { Header, Segment } from 'semantic-ui-react'
 
-// import 'semantic-ui-css/semantic.min.css'
 
 const initialState = { isLoading: false, results: [], value: '' }
 let search = [];
@@ -15,13 +11,6 @@ let searchData;
 class SearchExampleStandard extends Component {
     state = initialState
 
-    // handleResultSelect = (e, { result }) => {
-    //     this.setState({ value: result.title })
-    //     var id=result.key; 
-    //     console.log(this.props.history);
-
-    //     // window.location = `/patients/${id}`;
-    // }
 
     handleSearchChange = (e, { value }) => {
         this.setState({ isLoading: true, value })
@@ -58,9 +47,6 @@ class SearchExampleStandard extends Component {
             search = [];
             for (var x = 0; x < patientData.length; x++) {
                 if (patientData[x].props.children.props.children) {
-                    // console.log(patientData);
-                    // console.log("id " + patientData[x].key);
-                    // console.log("patient name " + patientData[x].props.children.props.children);
                     searchData = {
                         key: patientData[x].key,
                         title: patientData[x].props.children.props.children
@@ -68,7 +54,7 @@ class SearchExampleStandard extends Component {
 
                     search.push(searchData);
 
-                    // console.log(search);
+
                 }
             }
         }

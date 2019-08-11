@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPatient } from "../../../../actions/patientsActions";
-// import JSONPretty from 'react-json-pretty';
-
-
 import Spinner from "../../../common/Spinner";
 import Modal from "../Modal/Modal";
 
 import "../MainContent.scss";
 import "./Patient.scss";
-// import { timingSafeEqual } from "crypto";
 
 
 class Patient extends Component {
@@ -55,15 +51,7 @@ class Patient extends Component {
     this.setState({ modal: !this.state.modal, edit: false });
   };
 
-  toggleEditModal = (name, age, sex, height, weight,
-    diabetesMellitus,
-    cancer, 
-    hipertensionArterial, 
-    litiasisRenal, hipotiroidismo, hipertiroidismo, dislipidemia, 
-    ingestaActualMedicamentos, cirugias, transfusiones,
-    hepatitis,
-    diabetesMellitusPersonal, litiasisRenalPersonal, hipotiroidismoPersonal, hipertiroidismoPersonal, bebidasAlcoholicas, drogas, realizaEjercicio, tabaquismo, menarca, gestaciones, continuaMenstruando, edadDejoMenstruar, embarazo, dificultadEmbarazo, 
-    id, owner, e) => {
+  toggleEditModal = (name, age, sex, height, weight, diabetesMellitus,cancer, hipertensionArterial, litiasisRenal, hipotiroidismo, hipertiroidismo, dislipidemia, ingestaActualMedicamentos, cirugias, transfusiones, hepatitis, diabetesMellitusPersonal, litiasisRenalPersonal, hipotiroidismoPersonal, hipertiroidismoPersonal, bebidasAlcoholicas, drogas, realizaEjercicio, tabaquismo, menarca, gestaciones, continuaMenstruando, edadDejoMenstruar, embarazo, dificultadEmbarazo, id, owner, e) => {
     e.stopPropagation();
     this.setState({
       modal: !this.state.modal,
@@ -270,22 +258,6 @@ class Patient extends Component {
               owner={this.state.owner}
             />
           </div>
-
-          {/* <div className="tasks-container">
-            <div className="patients-first-row">
-              <button
-                className="main-btn add-btn"
-                onClick={this.toggleTaskModal}
-              >
-                Add task
-              </button>
-              <div className="patients-column-headers">
-                <p>Assignee</p>
-                <p>Due</p>
-              </div>
-            </div>
-            <div className="patient-tasks">{tasksList}</div>
-          </div> */}
           <div className="tasks-container">
             <div className="info-general">
               <div className="info-gral-patient">

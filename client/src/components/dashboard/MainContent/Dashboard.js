@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import "./MainContent.scss";
 import "./Dashboard.scss";
-
 import { connect } from "react-redux";
-
 import Modal from "./Modal/Modal";
-// import SearchBar from "./Search/Search"
+
 import SearchExampleStandard from "./Search/Search2"
-// import { PATIENT_LOADING } from "../../../actions/types";
+
 
 
 class Dashboard extends Component {
@@ -106,12 +104,6 @@ class Dashboard extends Component {
               onClose={this.toggleModal}
               modal={this.state.modal}
               edit={this.state.edit}
-            // name={this.state.name}
-            // age={this.state.age}
-            // height={this.state.height}
-            // weight={this.state.weight}
-            // id={this.state.id}
-            // owner={this.state.owner}
             />
           </div>
           <div className="patients-wrapper">{patientData}</div>
